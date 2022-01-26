@@ -1,3 +1,3 @@
-export const App = () => {
-  return <h1>App</h1>;
-};
+import { Routes } from './routes';
+
+export const App = () => <Routes />;
