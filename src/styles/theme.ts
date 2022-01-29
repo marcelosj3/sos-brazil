@@ -43,6 +43,12 @@ export const theme = extendTheme({
     lg: '1.125rem',
     xl: '1.375rem',
     '1xl': '1.625rem',
+    '2xl': '2rem',
+    '3xl': '2.5rem',
+    '4xl': '3.5rem',
+    '5xl': '4rem',
+    '6xl': '4.5rem',
+    '7xl': '5rem',
   },
 
   styles: {
