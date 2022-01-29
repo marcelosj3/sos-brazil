@@ -1,3 +1,9 @@
+import { GeneralInfo } from './Sections/GeneralInfo';
+
 export const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <GeneralInfo />
+    </>
+  );
 };
