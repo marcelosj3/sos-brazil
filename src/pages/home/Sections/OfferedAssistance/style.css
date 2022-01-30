@@ -1,6 +1,5 @@
 [data-aos="SlideFromAbove"] {
   transform: translateY(-40%);
-  transform: translateY(-50%);
   opacity: 1;
   visibility: visible;
   transition-property: transform, opacity;
