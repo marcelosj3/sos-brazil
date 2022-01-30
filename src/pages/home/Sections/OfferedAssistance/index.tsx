@@ -1,13 +1,68 @@
-import { useEffect } from 'react';
-import { Box, Grid, Heading, Text } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import { Box, Heading, useMediaQuery } from '@chakra-ui/react';
 import AOS from 'aos';
 
-import { AssistanceCard } from '../../../../components/AssistanceCard';
+import { AssistanceBox } from '../../../../components/AssistanceBox';
+import { AssistanceBulletSlider } from './assistanceBulletSlider';
 
 import 'aos/dist/aos.css';
 import './style.css';
 
+interface ISelectValueOption {
+  [key: string]: number;
+}
+
+interface ISelectValue {
+  [key: string]: ISelectValueOption;
+}
+
 export const OfferedAssistance = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollValue, setScrollValue] = useState(0);
+
+  const [from0ToSm] = useMediaQuery('(max-width: 479px)');
+  const [fromSmToMd] = useMediaQuery(
+    '(min-width: 480px) and (max-width: 767px)'
+  );
+  const [fromMdToLg] = useMediaQuery(
+    '(min-width: 768px) and (max-width: 991px)'
+  );
+
+  const selectValue: ISelectValue = {
+    from0ToSm: {
+      first: 16,
+      second: 336,
+      third: 656,
+      fourth: 976,
+    },
+    fromSmToMd: {
+      first: 32,
+      second: 452,
+      third: 872,
+      fourth: 1292,
+    },
+    fromMdToLg: {
+      first: 32,
+      second: 702,
+      third: 1372,
+      fourth: 2042,
+    },
+  };
+
+  const handleScrollTo = (index: string) => {
+    let value = 0;
+
+    if (from0ToSm) {
+      value = selectValue.from0ToSm[index];
+    } else if (fromSmToMd) {
+      value = selectValue.fromSmToMd[index];
+    } else if (fromMdToLg) {
+      value = selectValue.fromMdToLg[index];
+    }
+
+    setScrollValue(value);
+  };
+
   useEffect(() => {
     AOS.init({ duration: 2000 });
   }, []);
@@ -29,90 +84,14 @@ export const OfferedAssistance = () => {
       >
         Assistências oferecidas
       </Heading>
-      <Grid
-        bg="primary.100"
-        paddingY={['32px', '56px']}
-        paddingX={['16px', '32px']}
-        templateColumns={[
-          'repeat(4,300px)',
-          'repeat(4,400px)',
-          'repeat(4,650px)',
-          'repeat(2,400px)',
-        ]}
-        templateRows={[
-          'repeat(1,300px)',
-          'repeat(1,300px)',
-          'repeat(1,300px)',
-          'repeat(2,250px)',
-        ]}
-        justifyItems="center"
-        justifyContent={['normal', 'normal', 'normal', 'center']}
-        alignItems={['normal', 'normal', 'normal', 'center']}
-        gap="20px"
-        borderRadius="8px"
-        margin={['0px', '0px', '0px', '16px']}
-        marginTop={['60px', '40px', '20px']}
-        w={['300px', '400px', '650px', '900px', '1000px']}
-        overflowY="hidden"
-        overflowX={['scroll', 'scroll', 'scroll', 'hidden']}
-        scrollSnapType="x mandatory"
-        data-aos="SlideFromAbove"
-        sx={{
-          '::-webkit-scrollbar': {
-            height: '5px',
-            width: '5px',
-          },
-          '::-webkit-scrollbar-track': {
-            borderRadius: '10px',
-          },
-          '::-webkit-scrollbar-thumb': {
-            background: 'primary.300',
-          },
-          '::-webkit-scrollbar-thumb:hover': {
-            background: 'primary.400',
-          },
-        }}
-      >
-        <AssistanceCard medical>
-          <Heading fontSize="lg" marginY="20px">
-            Assistência médica
-          </Heading>
-          <Text color="gray.250">
-            As lick i the shoes eat owner's food experiences short bursts of
-            poo-phoria after going to the loo but meow meow you are my owner
-          </Text>
-        </AssistanceCard>
-
-        <AssistanceCard healthyFood>
-          <Heading fontSize="lg" marginY="20px">
-            Comida saudável
-          </Heading>
-          <Text color="gray.250">
-            As lick i the shoes eat owner's food experiences short bursts of
-            poo-phoria after going to the loo but meow meow you are my owner
-          </Text>
-        </AssistanceCard>
-
-        <AssistanceCard legalAssistance>
-          <Heading fontSize="lg" marginY="20px">
-            Assistência Jurídica
-          </Heading>
-          <Text color="gray.250">
-            As lick i the shoes eat owner's food experiences short bursts of
-            poo-phoria after going to the loo but meow meow you are my owner
-          </Text>
-        </AssistanceCard>
-
-        <AssistanceCard loveAndCare>
-          <Heading fontSize="lg" marginY="20px">
-            Cuidados e amparo
-          </Heading>
-          <Text color="gray.250">
-            As lick i the shoes eat owner's food experiences short bursts of
-            poo-phoria after going to the loo but meow meow you are my owner
-          </Text>
-        </AssistanceCard>
-      </Grid>
+      <AssistanceBox
+        value={scrollValue}
+        setScrollPosition={setScrollPosition}
+      />
+      <AssistanceBulletSlider
+        scrollPosition={scrollPosition}
+        handleScrollTo={handleScrollTo}
+      />
     </Box>
   );
 };
