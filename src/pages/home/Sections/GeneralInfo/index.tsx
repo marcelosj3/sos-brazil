@@ -1,6 +1,6 @@
-import { Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 
-import backgroundImage from '../../../../assets/indigenous-brazilian-people-background.png';
+import backgroundImage from "../../../../assets/indigenous-brazilian-people-background.png";
 
 export const GeneralInfo = () => {
   return (
@@ -16,20 +16,20 @@ export const GeneralInfo = () => {
       alignItems="center"
     >
       <Heading
-        fontSize={['2xl', '3xl', '4xl', '5xl']}
+        fontSize={["2xl", "3xl", "4xl", "5xl"]}
         color="gray.100"
-        margin={['16px']}
-        marginBottom={['32px', '48px']}
-        maxW={['300px', '400px', '600px', '1200px']}
+        margin={["16px"]}
+        marginBottom={["32px", "48px"]}
+        maxW={["300px", "400px", "600px", "1200px"]}
         textAlign="center"
       >
         Reunindo informações, trazendo esperança
       </Heading>
       <Text
-        fontSize={['sm', 'md']}
+        fontSize={["sm", "md"]}
         color="gray.100"
-        marginBottom={['48px', '80px']}
-        maxW={['150px', '350px', '600px']}
+        marginBottom={["48px", "80px"]}
+        maxW={["150px", "350px", "600px"]}
         textAlign="center"
       >
         Asdflkjaertvlkjasntvkjn (sits on keyboard) leave hair on owner's clothes
@@ -37,14 +37,14 @@ export const GeneralInfo = () => {
         standing on litter cuz i sits when i have spaces, my cat buddies have no
         litter i live in luxury cat life.
       </Text>
-      <Flex flexDirection={['column', 'row']}>
+      <Flex flexDirection={["column", "row"]}>
         <Button
           bg="primary.300"
           color="gray.300"
-          h={['40px', '64px']}
-          w={['160px', '216px']}
-          marginBottom={['20px', '0']}
-          _hover={{ bg: 'primary.200' }}
+          h={["40px", "64px"]}
+          w={["160px", "216px"]}
+          marginBottom={["20px", "0"]}
+          _hover={{ bg: "primary.200" }}
           _focus={{}}
         >
           Quero Ajudar
@@ -52,10 +52,10 @@ export const GeneralInfo = () => {
         <Button
           bg="secondary.300"
           color="gray.100"
-          h={['40px', '64px']}
-          w={['160px', '216px']}
-          marginLeft={['0', '40px', '80px']}
-          _hover={{ bg: 'secondary.200' }}
+          h={["40px", "64px"]}
+          w={["160px", "216px"]}
+          marginLeft={["0", "40px", "80px"]}
+          _hover={{ bg: "secondary.200" }}
           _focus={{}}
         >
           Preciso de ajuda
