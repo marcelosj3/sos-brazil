@@ -1,12 +1,12 @@
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 
-import backgroundImage from '../../../assets/indigenous-brazilian-people-background.png';
+import backgroundImage from '../../../../assets/indigenous-brazilian-people-background.png';
 
 export const GeneralInfo = () => {
   return (
     <Flex
       h="100vh"
-      w="100vw"
+      w="100%"
       backgroundImage={backgroundImage}
       backgroundPosition="center"
       backgroundSize="cover"
