@@ -1,5 +1,5 @@
 [data-aos='SlideFromAbove'] {
-  transform: translateY(-50%);
+  transform: translateY(-40%);
   opacity: 1;
   visibility: visible;
   transition-property: transform, opacity;
@@ -18,7 +18,7 @@
 }
 
 [data-aos='showElement'].aos-animate {
-  height: fit-content;
+  height: auto;
   transform: translate(0);
   visibility: visible;
   opacity: 1;

@@ -56,6 +56,19 @@ export const theme = extendTheme({
       body: {
         bg: 'primary.200',
         color: 'gray.300',
+        '::-webkit-scrollbar': {
+          height: '5px',
+          width: '5px',
+        },
+        '::-webkit-scrollbar-track': {
+          borderRadius: '10px',
+        },
+        '::-webkit-scrollbar-thumb': {
+          background: 'primary.300',
+        },
+        '::-webkit-scrollbar-thumb:hover': {
+          background: 'primary.400',
+        },
       },
     },
   },
