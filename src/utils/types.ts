@@ -38,6 +38,7 @@ export interface ICnpjFormProps {
   };
   register: UseFormRegister<IRegisterData>;
 }
+<<<<<<< HEAD
 
 export interface ILoginData {
   email: string;
@@ -51,3 +52,5 @@ export interface ILoginFormProps {
   };
   register: UseFormRegister<IRegisterData>;
 }
+=======
+>>>>>>> 0eac868... feat: página de cadastro. Componentes criados e integrados, assim como a rota. Faltando definir campos junto à equipe para finalizar, integração com a API(criação do context de usuário) e estilização
