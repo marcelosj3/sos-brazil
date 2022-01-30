@@ -16,15 +16,17 @@ export const GeneralInfo = () => {
       alignItems="center"
     >
       <Heading
-        fontSize={['1xl', '4xl', '5xl']}
+        fontSize={['2xl', '3xl', '4xl', '5xl']}
         color="gray.100"
+        margin={['16px']}
         marginBottom={['32px', '48px']}
-        maxW={['300px', '1200px']}
+        maxW={['300px', '400px', '600px', '1200px']}
         textAlign="center"
       >
         Reunindo informações, trazendo esperança
       </Heading>
       <Text
+        fontSize={['sm', 'md']}
         color="gray.100"
         marginBottom={['48px', '80px']}
         maxW={['150px', '350px', '600px']}

@@ -21,7 +21,7 @@ export const OfferedAssistance = () => {
       data-aos="justifyFix"
     >
       <Heading
-        fontSize={['2xl', '4xl']}
+        fontSize={['2xl', '3xl', '4xl']}
         marginBottom="20px"
         textAlign="center"
         marginTop="40px"
