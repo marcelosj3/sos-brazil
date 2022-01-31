@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { Grid, Heading, VStack, Button, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ILoginData } from "../../utils/types";
+
 import { Input } from "../Register/Input";
+
+interface ILoginData {
+  email: string;
+  password: string;
+}
 
 const LoginSchema = yup.object().shape({
   email: yup.string().required("Email obrigatório").email("Email inválido"),

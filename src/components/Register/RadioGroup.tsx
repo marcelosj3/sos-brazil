@@ -8,12 +8,12 @@ interface IRadioGroupProps {
   onChange?: (e: string) => void;
 }
 
-export function RadioGroup({
+export const RadioGroup = ({
   options,
   name,
   defaultValue,
   onChange,
-}: IRadioGroupProps) {
+}: IRadioGroupProps) => {
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: name,
     defaultValue: defaultValue,
@@ -34,4 +34,4 @@ export function RadioGroup({
       })}
     </HStack>
   );
-}
+};

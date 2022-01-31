@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ReactNode } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 
-import { AuthProvider } from './AuthContext';
+import { AuthProvider } from "./AuthContext";
 
-import { theme } from '../styles/theme';
+import { theme } from "../styles/theme";
 
 interface IAppProviderProps {
   children: ReactNode;
