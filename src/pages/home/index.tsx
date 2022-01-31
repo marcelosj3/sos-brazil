@@ -1,3 +1,11 @@
+import { GeneralInfo } from './Sections/GeneralInfo';
+import { OfferedAssistance } from './Sections/OfferedAssistance';
+
 export const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <GeneralInfo />
+      <OfferedAssistance />
+    </>
+  );
 };
