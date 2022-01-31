@@ -1,4 +1,5 @@
 import { VStack } from "@chakra-ui/react";
+<<<<<<< HEAD
 import { FieldError, UseFormRegister } from "react-hook-form";
 
 import { Input } from "./Input";
@@ -29,6 +30,12 @@ interface ICpfFormProps {
   };
   register: UseFormRegister<IRegisterData>;
 }
+=======
+
+import { Input } from "./Input";
+
+import { ICpfFormProps } from "../../utils/types";
+>>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6
 
 export const CpfForm = ({ register, errors }: ICpfFormProps) => {
   return (

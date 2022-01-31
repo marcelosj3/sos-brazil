@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { Grid, Heading, Text, VStack, Button } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
+<<<<<<< HEAD
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
+=======
+import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+>>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6
 
 import { CpfForm } from "./CpfForm";
 import { CnpjForm } from "./CnpjForm";
 import { RadioGroup } from "./RadioGroup";
 
+<<<<<<< HEAD
 interface IDonations {
   type_of_contribution: string;
   value: number;
@@ -26,6 +33,9 @@ interface IRegisterData {
   donations?: Array<IDonations>;
   volunteer?: string;
 }
+=======
+import { IRegisterData } from "../../utils/types";
+>>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6
 
 const RegisterSchema = yup.object().shape({
   name: yup.string().required("Nome obrigatório"),
