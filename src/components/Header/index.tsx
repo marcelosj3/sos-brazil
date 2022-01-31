@@ -15,6 +15,8 @@ export const Header = () => {
       justifyContent="space-around"
       alignItems="center"
       color="white"
+      position="absolute"
+      top="0"
     >
       {point ? (
         <Button
@@ -28,7 +30,7 @@ export const Header = () => {
         <MenuButton />
       )}
 
-      {point ? <Link to="#">Home</Link> : null}
+      {point ? <Link to="/">Home</Link> : null}
       {point ? <Link to="#">Sobre nós</Link> : null}
 
       <Image src={Logo} alt="logo" w="50px" order={[-1, 0]} />
