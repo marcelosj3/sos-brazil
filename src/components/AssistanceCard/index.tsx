@@ -7,20 +7,11 @@ import LegalAssistanceIcon from '../../assets/Icons/legal-assistance.svg';
 import LoveAndCareIcon from '../../assets/Icons/love-and-care.svg';
 
 interface IAssistanceCard {
-  medical?: boolean;
-  healthyFood?: boolean;
-  legalAssistance?: boolean;
-  loveAndCare?: boolean;
+  icon: string;
   children: ReactNode;
 }
 
-export const AssistanceCard = ({
-  medical,
-  healthyFood,
-  legalAssistance,
-  loveAndCare,
-  children,
-}: IAssistanceCard) => {
+export const AssistanceCard = ({ icon, children }: IAssistanceCard) => {
   return (
     <Flex
       flexDirection="column"
@@ -29,10 +20,10 @@ export const AssistanceCard = ({
       scrollSnapAlign="center"
     >
       <Center>
-        {medical && <Image src={MedicalIcon} />}
-        {healthyFood && <Image src={HealthyFoodIcon} />}
-        {legalAssistance && <Image src={LegalAssistanceIcon} />}
-        {loveAndCare && <Image src={LoveAndCareIcon} />}
+        {icon === 'medical' && <Image src={MedicalIcon} />}
+        {icon === 'healthyFood' && <Image src={HealthyFoodIcon} />}
+        {icon === 'legalAssistance' && <Image src={LegalAssistanceIcon} />}
+        {icon === 'loveAndCare' && <Image src={LoveAndCareIcon} />}
       </Center>
       <Flex flexDirection="column" alignItems="center">
         {children}

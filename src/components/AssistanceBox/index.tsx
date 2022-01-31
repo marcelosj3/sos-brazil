@@ -1,18 +1,47 @@
 import { Grid, Heading, Text } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
+
 import { AssistanceCard } from '../AssistanceCard';
 
 interface IAssistanceBox {
   value: number;
   setScrollPosition: (state: number) => void;
 }
+
+interface ICardInfo {
+  [key: string]: string;
+}
+
 export const AssistanceBox = ({ value, setScrollPosition }: IAssistanceBox) => {
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     container.current?.scrollTo({ left: value, behavior: 'smooth' });
   }, [value]);
+
+  const cardInfo: ICardInfo[] = [
+    {
+      icon: 'medical',
+      title: 'Assistência médica',
+      description: `As lick i the shoes eat owner's food experiences short bursts of poo-phoria after going to the loo but meow meow you are my owner`,
+    },
+    {
+      icon: 'healthyFood',
+      title: 'Comida saudável',
+      description: `As lick i the shoes eat owner's food experiences short bursts of poo-phoria after going to the loo but meow meow you are my owner`,
+    },
+    {
+      icon: 'legalAssistance',
+      title: 'Assistência Jurídica',
+      description: `As lick i the shoes eat owner's food experiences short bursts of poo-phoria after going to the loo but meow meow you are my owner`,
+    },
+    {
+      icon: 'loveAndCare',
+      title: 'Cuidados e amparo',
+      description: `As lick i the shoes eat owner's food experiences short bursts of poo-phoria after going to the loo but meow meow you are my owner`,
+    },
+  ];
 
   return (
     <Grid
@@ -57,45 +86,14 @@ export const AssistanceBox = ({ value, setScrollPosition }: IAssistanceBox) => {
         },
       }}
     >
-      <AssistanceCard medical>
-        <Heading fontSize="lg" marginY="20px">
-          Assistência médica
-        </Heading>
-        <Text color="gray.250">
-          As lick i the shoes eat owner's food experiences short bursts of
-          poo-phoria after going to the loo but meow meow you are my owner
-        </Text>
-      </AssistanceCard>
-
-      <AssistanceCard healthyFood>
-        <Heading fontSize="lg" marginY="20px">
-          Comida saudável
-        </Heading>
-        <Text color="gray.250">
-          As lick i the shoes eat owner's food experiences short bursts of
-          poo-phoria after going to the loo but meow meow you are my owner
-        </Text>
-      </AssistanceCard>
-
-      <AssistanceCard legalAssistance>
-        <Heading fontSize="lg" marginY="20px">
-          Assistência Jurídica
-        </Heading>
-        <Text color="gray.250">
-          As lick i the shoes eat owner's food experiences short bursts of
-          poo-phoria after going to the loo but meow meow you are my owner
-        </Text>
-      </AssistanceCard>
-
-      <AssistanceCard loveAndCare>
-        <Heading fontSize="lg" marginY="20px">
-          Cuidados e amparo
-        </Heading>
-        <Text color="gray.250">
-          As lick i the shoes eat owner's food experiences short bursts of
-          poo-phoria after going to the loo but meow meow you are my owner
-        </Text>
-      </AssistanceCard>
+      {cardInfo.map(({ icon, title, description }, index) => (
+        <AssistanceCard key={index} icon={icon}>
+          <Heading fontSize="lg" marginY="20px">
+            {title}
+          </Heading>
+          <Text color="gray.250">{description}</Text>
+        </AssistanceCard>
+      ))}
     </Grid>
   );
 };
