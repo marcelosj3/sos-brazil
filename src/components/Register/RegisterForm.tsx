@@ -8,7 +8,13 @@ import { CnpjForm } from "./CnpjForm";
 import { RadioGroup } from "./RadioGroup";
 import { useNavigate } from "react-router-dom";
 import { IRegisterData } from "../../utils/types";
-import { RegisterCpfSchema, RegisterCnpjSchema } from "./Validation/index";
+
+const RegisterSchema = yup.object().shape({
+  name: yup.string().required("Nome obrigatório"),
+  email: yup.string().required("Email obrigatório").email("Email inválido"),
+  password: yup.string().required("Senha obrigatória"),
+  social_number: yup.string().required("Campo obrigatório"),
+});
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -16,30 +22,18 @@ export const RegisterForm = () => {
   const [typeOfUser, setTypeOfUser] = useState("");
   const [loading, setLoading] = useState(false);
 
-  let schema = yup.object();
-
-  //funciona para o primeiro clique, mas se mudar antes de renderizar novamente
-  // o schema não muda. Tentei useEffect mas não funcionou (Davi)
-  if (typeOfUser === "CPF") {
-    schema = RegisterCpfSchema;
-  }
-  if (typeOfUser === "CNPJ") {
-    schema = RegisterCnpjSchema;
-  }
-
-  console.log(typeOfUser);
-
   const {
     formState: { errors },
     register,
     handleSubmit,
   } = useForm<IRegisterData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(RegisterSchema),
   });
 
+  // add função de registro na API quando context estiver implementado
   const handleRegister = (data: IRegisterData) => {
     setLoading(true);
-    console.log(data); // add função de registro na API quando context estiver implementado
+    console.log(data);
     navigate("/donate");
   };
 

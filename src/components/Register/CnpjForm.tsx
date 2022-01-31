@@ -13,13 +13,6 @@ export const CnpjForm = ({ register, errors }: ICnpjFormProps) => {
         {...register("name")}
       />
       <Input
-        placeholder="Em qual área sua empresa atua?"
-        label="Área de atuação"
-        type="text"
-        error={errors.area}
-        {...register("area")}
-      />
-      <Input
         placeholder="Digite seu CNPJ"
         label="CNPJ"
         type="text"
@@ -27,7 +20,7 @@ export const CnpjForm = ({ register, errors }: ICnpjFormProps) => {
         {...register("social_number")}
       />
       <Input
-        placeholder="Digite um email"
+        placeholder="Digite o email"
         label="Email para contato"
         type="text"
         error={errors.email}
