@@ -1,8 +1,5 @@
 import { HStack, useRadioGroup } from "@chakra-ui/react";
-<<<<<<< HEAD
-=======
 
->>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6
 import { RadioCard } from "./RadioCard";
 
 interface IRadioGroupProps {
@@ -12,20 +9,12 @@ interface IRadioGroupProps {
   onChange?: (e: string) => void;
 }
 
-<<<<<<< HEAD
 export const RadioGroup = ({
-=======
-export function RadioGroup({
->>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6
   options,
   name,
   defaultValue,
   onChange,
-<<<<<<< HEAD
 }: IRadioGroupProps) => {
-=======
-}: IRadioGroupProps) {
->>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: name,
     defaultValue: defaultValue,
@@ -46,8 +35,4 @@ export function RadioGroup({
       })}
     </HStack>
   );
-<<<<<<< HEAD
 };
-=======
-}
->>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6

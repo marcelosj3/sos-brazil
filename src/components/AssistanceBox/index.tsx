@@ -1,6 +1,5 @@
+import { useRef, useEffect } from "react";
 import { Grid, Heading, Text } from "@chakra-ui/react";
-import { useEffect } from "react";
-import { useRef } from "react";
 
 import { AssistanceCard } from "../AssistanceCard";
 

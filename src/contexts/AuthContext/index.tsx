@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from "react";
 
 interface IAuthProviderProps {
   children: ReactNode;
@@ -25,7 +25,7 @@ const useAuth = () => {
   const context = useContext(AuthContext);
 
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider!');
+    throw new Error("useAuth must be used within an AuthProvider!");
   }
 
   return context;
@@ -33,8 +33,8 @@ const useAuth = () => {
 
 const AuthProvider = ({ children }: IAuthProviderProps) => {
   const [data, setData] = useState<IDataState>(() => {
-    const accessToken = localStorage.getItem('@capstone:accessToken');
-    const user = localStorage.getItem('@capstone:user');
+    const accessToken = localStorage.getItem("@capstone:accessToken");
+    const user = localStorage.getItem("@capstone:user");
 
     if (accessToken && user) {
       const data = { accessToken, user: JSON.parse(user) };

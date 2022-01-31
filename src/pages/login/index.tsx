@@ -1,18 +1,7 @@
 import { Flex, Image } from "@chakra-ui/react";
-<<<<<<< HEAD
 import { LoginForm } from "../../components/Login/LoginForm";
-<<<<<<< HEAD
-import imageLogin from "../../utils/img/worldHand.svg";
-=======
 
 import imageLogin from "../../assets/worldHand.svg";
->>>>>>> acbf4cf... fix: refactor whole document to meet code pattern
-=======
-
-import { LoginForm } from "../../components/Login/LoginForm";
-
-import imageLogin from "../../utils/img/worldHand.svg";
->>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6
 
 export const Login = () => {
   return (

@@ -1,5 +1,5 @@
-import { Center, Flex, Image } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import { Center, Flex, Image } from "@chakra-ui/react";
 
 import MedicalIcon from "../../assets/Icons/medical.svg";
 import HealthyFoodIcon from "../../assets/Icons/healthy-food.svg";

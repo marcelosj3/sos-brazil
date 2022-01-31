@@ -1,5 +1,4 @@
 import { VStack } from "@chakra-ui/react";
-<<<<<<< HEAD
 import { FieldError, UseFormRegister } from "react-hook-form";
 
 import { Input } from "./Input";
@@ -32,12 +31,6 @@ interface ICnpjFormProps {
   };
   register: UseFormRegister<IRegisterData>;
 }
-=======
-
-import { Input } from "./Input";
-
-import { ICnpjFormProps } from "../../utils/types";
->>>>>>> 8ef2642d0094c09e4f3ee49a15a1196efe359ac6
 
 export const CnpjForm = ({ register, errors }: ICnpjFormProps) => {
   return (
