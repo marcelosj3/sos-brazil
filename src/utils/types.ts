@@ -38,3 +38,16 @@ export interface ICnpjFormProps {
   };
   register: UseFormRegister<IRegisterData>;
 }
+
+export interface ILoginData {
+  email: string;
+  password: string;
+}
+
+export interface ILoginFormProps {
+  errors: {
+    email?: FieldError | undefined;
+    password?: FieldError | undefined;
+  };
+  register: UseFormRegister<IRegisterData>;
+}
