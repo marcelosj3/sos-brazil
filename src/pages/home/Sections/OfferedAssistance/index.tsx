@@ -19,6 +19,7 @@ interface ISelectValue {
 export const OfferedAssistance = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scrollValue, setScrollValue] = useState(0);
+  const [scrollElementDistance, setScrollElementDistance] = useState(0);
 
   const [from0ToSm] = useMediaQuery('(max-width: 479px)');
   const [fromSmToMd] = useMediaQuery(
@@ -30,26 +31,39 @@ export const OfferedAssistance = () => {
 
   const selectValue: ISelectValue = {
     from0ToSm: {
-      first: 16,
-      second: 336,
-      third: 656,
-      fourth: 976,
+      elementDistance: 336,
+      1: 16,
+      2: 336,
+      3: 656,
+      4: 976,
     },
     fromSmToMd: {
-      first: 32,
-      second: 452,
-      third: 872,
-      fourth: 1292,
+      elementDistance: 452,
+      1: 32,
+      2: 452,
+      3: 872,
+      4: 1292,
     },
     fromMdToLg: {
-      first: 32,
-      second: 702,
-      third: 1372,
-      fourth: 2042,
+      elementDistance: 702,
+      1: 32,
+      2: 702,
+      3: 1372,
+      4: 2042,
     },
   };
 
-  const handleScrollTo = (index: string) => {
+  useEffect(() => {
+    if (from0ToSm) {
+      setScrollElementDistance(selectValue.from0ToSm.elementDistance);
+    } else if (fromSmToMd) {
+      setScrollElementDistance(selectValue.fromSmToMd.elementDistance);
+    } else if (fromMdToLg) {
+      setScrollElementDistance(selectValue.fromMdToLg.elementDistance);
+    }
+  }, [from0ToSm, fromSmToMd, fromMdToLg]);
+
+  const handleScrollTo = (index: number) => {
     let value = 0;
 
     if (from0ToSm) {
@@ -90,7 +104,9 @@ export const OfferedAssistance = () => {
       />
       <AssistanceBulletSlider
         scrollPosition={scrollPosition}
+        scrollElementDistance={scrollElementDistance}
         handleScrollTo={handleScrollTo}
+        bulletQuantity={4}
       />
     </Box>
   );
