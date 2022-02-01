@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 import { Input } from "../Register/Input";
+import { useAuth } from "../../contexts/AuthContext";
 
 interface ILoginData {
   email: string;
@@ -18,6 +19,8 @@ const LoginSchema = yup.object().shape({
 });
 
 export const LoginForm = () => {
+  const { signIn } = useAuth();
+
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -32,8 +35,12 @@ export const LoginForm = () => {
 
   const handleLogin = (data: ILoginData) => {
     setLoading(true);
-    console.log(data);
-    navigate("/donate");
+    signIn(data)
+      .then((_) => {
+        setLoading(false);
+        navigate("/donate");
+      })
+      .catch((_) => setLoading(false));
   };
 
   return (
@@ -48,11 +55,12 @@ export const LoginForm = () => {
       bg="white"
       color="gray.900"
     >
-      <Heading fontSize={["1xl", "3xl"]}
-        fontWeight={["normal"]} 
+      <Heading
+        fontSize={["1xl", "3xl"]}
+        fontWeight={["normal"]}
         textAlign="center"
         lineHeight={["30px", "48px"]}
-        >
+      >
         Estou pronte para mudar o mundo!
       </Heading>
       <VStack spacing="5" mt="6">
@@ -84,8 +92,7 @@ export const LoginForm = () => {
         >
           Entrar
         </Button>
-        <Text 
-          color="gray.250">
+        <Text color="gray.250">
           Ainda não possui uma conta? Faça o seu cadastro!
         </Text>
         <Button
@@ -99,7 +106,7 @@ export const LoginForm = () => {
           borderRadius="8px"
           _hover={{
             background: "secondary.250",
-            color: "white"
+            color: "white",
           }}
           type="submit"
         >

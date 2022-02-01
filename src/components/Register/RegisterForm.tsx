@@ -8,12 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { CpfForm } from "./CpfForm";
 import { CnpjForm } from "./CnpjForm";
 import { RadioGroup } from "./RadioGroup";
-
-interface IDonations {
-  type_of_contribution: string;
-  value: number;
-  material: string;
-}
+import { useAuth } from "../../contexts/AuthContext";
 
 interface IRegisterData {
   name: string;
@@ -22,9 +17,6 @@ interface IRegisterData {
   social_number: string;
   area?: string;
   prefered_cause?: string;
-  specialty?: string;
-  donations?: Array<IDonations>;
-  volunteer?: string;
 }
 
 const RegisterSchema = yup.object().shape({
@@ -37,6 +29,8 @@ const RegisterSchema = yup.object().shape({
 export const RegisterForm = () => {
   const navigate = useNavigate();
 
+  const { signUp } = useAuth();
+
   const [typeOfUser, setTypeOfUser] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -48,11 +42,14 @@ export const RegisterForm = () => {
     resolver: yupResolver(RegisterSchema),
   });
 
-  // add função de registro na API quando context estiver implementado
   const handleRegister = (data: IRegisterData) => {
     setLoading(true);
-    console.log(data);
-    navigate("/donate");
+    signUp(data)
+      .then((_) => {
+        setLoading(false);
+        navigate("/donate");
+      })
+      .catch((_) => setLoading(false));
   };
 
   return (
