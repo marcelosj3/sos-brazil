@@ -5,8 +5,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
-import { Input } from "../Register/Input";
 import { useAuth } from "../../contexts/AuthContext";
+
+import { Input } from "../Register/Input";
 
 interface ILoginData {
   email: string;
