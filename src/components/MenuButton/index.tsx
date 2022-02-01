@@ -9,10 +9,9 @@ import {
   Text,
   Grid,
 } from "@chakra-ui/react";
-
 import { FiMenu, FiX } from "react-icons/fi";
-
 import { Link as ReachLink } from "react-router-dom";
+
 import { useAuth } from "../../contexts/AuthContext";
 
 export const MenuButton = () => {

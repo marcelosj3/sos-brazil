@@ -1,18 +1,14 @@
 import { Button, Flex, Image, useMediaQuery, Link } from "@chakra-ui/react";
-import Logo from "../../assets/logo-sos-Brasil.svg";
 import { Link as ReachLink } from "react-router-dom";
-import { MenuButton } from "../MenuButton";
 import { useNavigate } from "react-router-dom";
+
+import { MenuButton } from "../MenuButton";
+
+import Logo from "../../assets/logo-sos-Brasil.svg";
 
 export const Header = () => {
   const [point] = useMediaQuery("(min-width: 480px)");
   const [point1] = useMediaQuery("(min-width: 560px)");
-
-  const link = window.location.href;
-  const splitLink = link.split("/");
-  const compLink = splitLink[splitLink.length - 1];
-
-  console.log(compLink);
 
   const navigate = useNavigate();
   return (
