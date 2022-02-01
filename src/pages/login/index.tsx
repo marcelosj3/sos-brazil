@@ -10,18 +10,21 @@ export const Login = () => {
       alignItems="center"
       justifyContent="center"
       color="white"
-      mt="20px"
+      h="100vh"
     >
       <Flex
-        w={["100%", "100%", "90%", "65%"]}
+        w={["100%"]}
         justifyContent="center"
         flexDirection={["column", "column", "row", "row"]}
         alignItems="center"
       >
-        <Image
+      <Image
           src={imageLogin}
           alt="mundo na mão"
-          boxSize={["120px", "120px", "500px", "500px"]}
+          // boxSize={["120px", "120px", "500px", "500px"]}
+          w={["0px", "0px", "200px", "400px"]}  
+          display={["none", "none", "none", "block"]}
+          mr={["0px", "0px", "20px", "100px"]}  
         />
         <LoginForm />
       </Flex>
