@@ -10,7 +10,7 @@ export const Register = () => {
       padding={["10px 15px", "10px 15px", "0px", "0px"]}
       alignItems="center"
       justifyContent="center"
-      color="white"
+      color="gray.100.100"
       mt="20px"
     >
       <Flex

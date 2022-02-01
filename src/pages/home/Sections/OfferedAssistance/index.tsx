@@ -85,6 +85,8 @@ export const OfferedAssistance = () => {
     <Box
       id="assistencia"
       h="100vh"
+      minH={["700px", "700px", "700px", "900px"]}
+      paddingTop="85px"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -92,9 +94,8 @@ export const OfferedAssistance = () => {
     >
       <Heading
         fontSize={["2xl", "3xl", "4xl"]}
-        marginBottom="20px"
         textAlign="center"
-        marginTop="40px"
+        marginBottom="32px"
         data-aos="showElement"
       >
         Assistências oferecidas

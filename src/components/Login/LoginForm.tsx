@@ -52,13 +52,13 @@ export const LoginForm = () => {
       maxW={["300px", "400px"]}
       padding="30px 15px"
       border="3px solid"
-      borderColor="gray.100"
+      borderColor="gray.100.100"
       bg="white"
-      color="gray.900"
+      color="gray.300.100"
     >
       <Heading
         fontSize={["1xl", "3xl"]}
-        fontWeight={["normal"]}
+        fontWeight="normal"
         textAlign="center"
         lineHeight={["30px", "48px"]}
       >
@@ -83,7 +83,7 @@ export const LoginForm = () => {
           isLoading={loading}
           bg="primary.350"
           w="100%"
-          color="black"
+          color="gray.300.100"
           h={["40px", "48px"]}
           borderRadius="8px"
           _hover={{
@@ -107,7 +107,7 @@ export const LoginForm = () => {
           borderRadius="8px"
           _hover={{
             background: "secondary.250",
-            color: "white",
+            color: "gray.100.100",
           }}
           type="submit"
         >

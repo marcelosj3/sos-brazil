@@ -34,13 +34,14 @@ export const NewsContainer = () => {
   return (
     <Flex
       h="100vh"
-      minH={["550px", "800px"]}
+      minH={["750px", "1000px"]}
+      pt="85px"
       bg="primary.100"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
     >
-      <Heading textAlign="center" mb={["32px", "64px"]}>
+      <Heading textAlign="center" mb={["32px", "48px", "64px"]}>
         O que está acontecendo?
       </Heading>
       <Flex alignItems="center" justifyContent="center">

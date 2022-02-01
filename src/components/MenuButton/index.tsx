@@ -29,18 +29,17 @@ export const MenuButton = () => {
         )}
       </Center>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-        <DrawerOverlay mt="85px" bg="transparent" />
+        <DrawerOverlay mt="85px" bg="gray.300.50" />
         <DrawerContent
           textAlign="center"
-          color="white"
-          background="rgba(0, 0, 0, 0.2)"
+          color="gray.100.100"
+          background="gray.300.20"
           mt="85px"
           sx={{ backdropFilter: "blur(7px)" }}
           fontSizes="lg"
         >
           <Box width="100%" h="16px" bg="gray.100.15" />
           <Grid gap={8} padding="16px 0 16px 0">
-            {" "}
             <Link as={ReachLink} to="/" _focus={{}}>
               Home
             </Link>

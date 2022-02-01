@@ -21,9 +21,9 @@ export const RadioCard = ({ children, ...rest }: IRadioCardProps) => {
         borderRadius="md"
         boxShadow="md"
         _checked={{
-          bg: "#FFB703",
-          color: "black",
-          borderColor: "#FFB703",
+          bg: "primary.350",
+          color: "gray.300.100",
+          borderColor: "primary.350",
         }}
         _focus={{
           boxShadow: "outline",

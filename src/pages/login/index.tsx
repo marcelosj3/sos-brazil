@@ -9,10 +9,12 @@ export const Login = () => {
   return (
     <Flex
       padding={["10px 15px", "10px 15px", "0px", "0px"]}
+      paddingTop={["85px", "85px", "85px", "85px"]}
       alignItems="center"
       justifyContent="center"
       color="white"
       h="100vh"
+      minH="750px"
     >
       <Header />
       <Flex
@@ -24,7 +26,6 @@ export const Login = () => {
         <Image
           src={imageLogin}
           alt="mundo na mão"
-          // boxSize={["120px", "120px", "500px", "500px"]}
           w={["0px", "0px", "200px", "400px"]}
           display={["none", "none", "none", "block"]}
           mr={["0px", "0px", "20px", "100px"]}

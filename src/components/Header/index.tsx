@@ -14,57 +14,69 @@ export const Header = () => {
     <Flex
       h="85px"
       w="100%"
-      background="rgba(0, 0, 0, 0.2)"
+      background="gray.300.50"
       boxShadow="xl"
       sx={{ backdropFilter: "blur(7px)" }}
       justifyContent="space-around"
       alignItems="center"
-      color="white"
+      color="gray.100.100"
       position="fixed"
       top="0"
+      zIndex="1"
     >
-      {MediaQuery480 ? (
-        <Button
-          onClick={() => navigate("/login")}
-          variant="outline"
-          color="white"
-          _hover={{ color: "black", bg: "white" }}
-        >
-          Login
-        </Button>
-      ) : (
-        <MenuButton />
-      )}
-
-      {MediaQuery480 ? (
-        <Link as={ReachLink} to="/">
-          Home
-        </Link>
-      ) : null}
-      {MediaQuery560 ? <Link href="/#assistencia">Assistencias</Link> : null}
-
-      <Image src={Logo} alt="logo" w="50px" order={[-1, 0]} />
-      {MediaQuery480 ? (
-        <Link as={ReachLink} to="#">
-          Colaboradores
-        </Link>
-      ) : null}
-      {MediaQuery560 ? (
-        <Link as={ReachLink} to="#">
-          Sobre nós
-        </Link>
-      ) : null}
-
-      <Button
-        order={[-2, 0]}
-        variant="solid"
-        size="md"
-        color="white"
-        bg="feedback.danger"
-        _hover={{ bg: "#d8786b" }}
+      <Flex
+        maxW="1200px"
+        w="100%"
+        justifyContent="space-around"
+        alignItems="center"
       >
-        Doe Agora
-      </Button>
+        {MediaQuery480 ? (
+          <Button
+            onClick={() => navigate("/login")}
+            variant="outline"
+            color="gray.100.100"
+            _hover={{
+              color: "gray.300.100",
+              bg: "gray.100.100",
+              borderColor: "gray.100.100",
+            }}
+          >
+            Login
+          </Button>
+        ) : (
+          <MenuButton />
+        )}
+
+        {MediaQuery480 ? (
+          <Link as={ReachLink} to="/">
+            Home
+          </Link>
+        ) : null}
+        {MediaQuery560 ? <Link href="/#assistencia">Assistencias</Link> : null}
+
+        <Image src={Logo} alt="logo" w="50px" order={[-1, 0]} />
+        {MediaQuery480 ? (
+          <Link as={ReachLink} to="#">
+            Colaboradores
+          </Link>
+        ) : null}
+        {MediaQuery560 ? (
+          <Link as={ReachLink} to="#">
+            Sobre nós
+          </Link>
+        ) : null}
+
+        <Button
+          order={[-2, 0]}
+          variant="solid"
+          size="md"
+          color="white"
+          bg="feedback.danger.regular"
+          _hover={{ bg: "feedback.danger.light" }}
+        >
+          Doe Agora
+        </Button>
+      </Flex>
     </Flex>
   );
 };

@@ -29,10 +29,10 @@ type inputVariationOptions = {
 };
 
 const inputVariation: inputVariationOptions = {
-  error: "red.500",
-  default: "gray.200",
-  focus: "purple.800",
-  filled: "green.500",
+  error: "feedback.danger.regular",
+  default: "gray.250",
+  focus: "gray.300.100",
+  filled: "feedback.success",
 };
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
@@ -74,26 +74,29 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
           id={name}
           name={name}
           onChangeCapture={(e) => setValue(e.currentTarget.value)}
-          bg="gray.50"
+          bg="gray.100.100"
           color={inputVariation[variation]}
           borderColor={inputVariation[variation]}
           onFocus={handleInputFocus}
           onBlurCapture={handleInputBlur}
           variant="outline"
-          _hover={{ bgColor: "gray.100" }}
-          _focus={{ bgColor: "gray.100" }}
-          _placeholder={{ color: "gray.300" }}
+          _hover={{ bgColor: "gray.100.100" }}
+          _focus={{ bgColor: "gray.100.100" }}
+          _placeholder={{ color: "gray.300.100" }}
           size="md"
           h={["40px", "48px"]}
           ref={ref}
-          mb={!error? "26px" : "0px"}
+          mb={!error ? "26px" : "0px"}
           {...rest}
         />
 
         <FormErrorMessage
           h="18px"
           fontSize="sm"
-        >{!!error && error.message}</FormErrorMessage>
+          color="feedback.danger.regular"
+        >
+          {!!error && error.message}
+        </FormErrorMessage>
       </InputGroup>
     </FormControl>
   );
