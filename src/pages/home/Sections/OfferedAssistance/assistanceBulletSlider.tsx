@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex } from "@chakra-ui/react";
 
 interface IAssistanceBulletSlider {
   scrollPosition: number;
@@ -19,7 +19,7 @@ export const AssistanceBulletSlider = ({
     <Flex
       marginTop="40px"
       position="relative"
-      display={['flex', 'flex', 'flex', 'none']}
+      display={["flex", "flex", "flex", "none"]}
     >
       {bullets.map((index) => (
         <Box
@@ -28,7 +28,7 @@ export const AssistanceBulletSlider = ({
           w="10px"
           borderRadius="50%"
           bg="primary.300"
-          marginLeft={index ? '16px' : '0px'}
+          marginLeft={index ? "16px" : "0px"}
           cursor="pointer"
           onClick={() => handleScrollTo(index + 1)}
         />

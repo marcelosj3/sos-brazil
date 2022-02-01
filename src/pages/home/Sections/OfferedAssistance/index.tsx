@@ -16,6 +16,30 @@ interface ISelectValue {
   [key: string]: ISelectValueOption;
 }
 
+const selectValue: ISelectValue = {
+  from0ToSm: {
+    elementDistance: 336,
+    1: 16,
+    2: 336,
+    3: 656,
+    4: 976,
+  },
+  fromSmToMd: {
+    elementDistance: 452,
+    1: 32,
+    2: 452,
+    3: 872,
+    4: 1292,
+  },
+  fromMdToLg: {
+    elementDistance: 702,
+    1: 32,
+    2: 702,
+    3: 1372,
+    4: 2042,
+  },
+};
+
 export const OfferedAssistance = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scrollValue, setScrollValue] = useState(0);
@@ -29,29 +53,9 @@ export const OfferedAssistance = () => {
     "(min-width: 768px) and (max-width: 991px)"
   );
 
-  const selectValue: ISelectValue = {
-    from0ToSm: {
-      elementDistance: 336,
-      1: 16,
-      2: 336,
-      3: 656,
-      4: 976,
-    },
-    fromSmToMd: {
-      elementDistance: 452,
-      1: 32,
-      2: 452,
-      3: 872,
-      4: 1292,
-    },
-    fromMdToLg: {
-      elementDistance: 702,
-      1: 32,
-      2: 702,
-      3: 1372,
-      4: 2042,
-    },
-  };
+  useEffect(() => {
+    AOS.init({ duration: 3000 });
+  }, []);
 
   useEffect(() => {
     if (from0ToSm) {
@@ -76,10 +80,6 @@ export const OfferedAssistance = () => {
 
     setScrollValue(value);
   };
-
-  useEffect(() => {
-    AOS.init({ duration: 2000 });
-  }, []);
 
   return (
     <Box

@@ -1,15 +1,25 @@
+import { useState } from "react";
 import { Grid, Heading, Text, VStack, Button } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { CpfForm } from "./CpfForm";
 import { CnpjForm } from "./CnpjForm";
 import { RadioGroup } from "./RadioGroup";
-import { useNavigate } from "react-router-dom";
-import { IRegisterData } from "../../utils/types";
+import { useAuth } from "../../contexts/AuthContext";
 
-const RegisterSchema = yup.object().shape({
+interface IRegisterData {
+  name: string;
+  password: string;
+  email: string;
+  social_number: string;
+  area?: string;
+  prefered_cause?: string;
+}
+
+const registerSchema = yup.object().shape({
   name: yup.string().required("Nome obrigatório"),
   email: yup.string().required("Email obrigatório").email("Email inválido"),
   password: yup.string().required("Senha obrigatória"),
@@ -19,6 +29,8 @@ const RegisterSchema = yup.object().shape({
 export const RegisterForm = () => {
   const navigate = useNavigate();
 
+  const { signUp } = useAuth();
+
   const [typeOfUser, setTypeOfUser] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -27,14 +39,17 @@ export const RegisterForm = () => {
     register,
     handleSubmit,
   } = useForm<IRegisterData>({
-    resolver: yupResolver(RegisterSchema),
+    resolver: yupResolver(registerSchema),
   });
 
-  // add função de registro na API quando context estiver implementado
   const handleRegister = (data: IRegisterData) => {
     setLoading(true);
-    console.log(data);
-    navigate("/donate");
+    signUp(data)
+      .then((_) => {
+        setLoading(false);
+        navigate("/donate");
+      })
+      .catch((_) => setLoading(false));
   };
 
   return (

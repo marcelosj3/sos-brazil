@@ -1,4 +1,11 @@
 import {
+  useState,
+  useEffect,
+  useCallback,
+  ForwardRefRenderFunction,
+  forwardRef,
+} from "react";
+import {
   FormControl,
   FormErrorMessage,
   FormLabel,
@@ -7,14 +14,6 @@ import {
   InputLeftElement,
   InputGroup,
 } from "@chakra-ui/react";
-
-import {
-  useState,
-  useEffect,
-  useCallback,
-  ForwardRefRenderFunction,
-  forwardRef,
-} from "react";
 import { FieldError } from "react-hook-form";
 import { IconType } from "react-icons/lib";
 
@@ -85,12 +84,16 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
           _focus={{ bgColor: "gray.100" }}
           _placeholder={{ color: "gray.300" }}
           size="md"
-          h="35px"
+          h={["40px", "48px"]}
           ref={ref}
+          mb={!error? "26px" : "0px"}
           {...rest}
         />
 
-        {!!error && <FormErrorMessage>{error.message}</FormErrorMessage>}
+        <FormErrorMessage
+          h="18px"
+          fontSize="sm"
+        >{!!error && error.message}</FormErrorMessage>
       </InputGroup>
     </FormControl>
   );

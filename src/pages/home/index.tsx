@@ -1,13 +1,14 @@
+import { Box } from "@chakra-ui/react";
 import { GeneralInfo } from "./Sections/GeneralInfo";
+import { NewsContainer } from "./Sections/NewsContainer";
 import { OfferedAssistance } from "./Sections/OfferedAssistance";
-import { Header } from "../../components/Header";
 
 export const Home = () => {
   return (
-    <>
-      <Header />
+    <Box scrollSnapType="y mandatory">
       <GeneralInfo />
       <OfferedAssistance />
-    </>
+      <NewsContainer />
+    </Box>
   );
 };
