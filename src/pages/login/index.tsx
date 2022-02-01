@@ -1,4 +1,5 @@
 import { Flex, Image } from "@chakra-ui/react";
+import { Header } from "../../components/Header";
 import { LoginForm } from "../../components/Login/LoginForm";
 import imageLogin from "../../utils/img/worldHand.svg";
 
@@ -11,6 +12,7 @@ export const Login = () => {
       color="white"
       mt="20px"
     >
+      <Header />
       <Flex
         w={["100%", "100%", "90%", "65%"]}
         justifyContent="center"

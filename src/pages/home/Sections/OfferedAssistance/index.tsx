@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { Box, Heading, useMediaQuery } from '@chakra-ui/react';
-import AOS from 'aos';
+import { useEffect, useState } from "react";
+import { Box, Heading, useMediaQuery } from "@chakra-ui/react";
+import AOS from "aos";
 
-import { AssistanceBox } from '../../../../components/AssistanceBox';
-import { AssistanceBulletSlider } from './assistanceBulletSlider';
+import { AssistanceBox } from "../../../../components/AssistanceBox";
+import { AssistanceBulletSlider } from "./assistanceBulletSlider";
 
-import 'aos/dist/aos.css';
-import './style.css';
+import "aos/dist/aos.css";
+import "./style.css";
 
 interface ISelectValueOption {
   [key: string]: number;
@@ -21,12 +21,12 @@ export const OfferedAssistance = () => {
   const [scrollValue, setScrollValue] = useState(0);
   const [scrollElementDistance, setScrollElementDistance] = useState(0);
 
-  const [from0ToSm] = useMediaQuery('(max-width: 479px)');
+  const [from0ToSm] = useMediaQuery("(max-width: 479px)");
   const [fromSmToMd] = useMediaQuery(
-    '(min-width: 480px) and (max-width: 767px)'
+    "(min-width: 480px) and (max-width: 767px)"
   );
   const [fromMdToLg] = useMediaQuery(
-    '(min-width: 768px) and (max-width: 991px)'
+    "(min-width: 768px) and (max-width: 991px)"
   );
 
   const selectValue: ISelectValue = {
@@ -83,6 +83,7 @@ export const OfferedAssistance = () => {
 
   return (
     <Box
+      id="assistencia"
       h="100vh"
       display="flex"
       flexDirection="column"
@@ -90,7 +91,7 @@ export const OfferedAssistance = () => {
       data-aos="justifyFix"
     >
       <Heading
-        fontSize={['2xl', '3xl', '4xl']}
+        fontSize={["2xl", "3xl", "4xl"]}
         marginBottom="20px"
         textAlign="center"
         marginTop="40px"

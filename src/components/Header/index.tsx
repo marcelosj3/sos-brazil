@@ -1,25 +1,36 @@
-import { Button, Flex, Image, useMediaQuery } from "@chakra-ui/react";
+import { Button, Flex, Image, useMediaQuery, Link } from "@chakra-ui/react";
 import Logo from "../../assets/logo-sos-Brasil.svg";
-import { Link } from "react-router-dom";
+import { Link as ReachLink } from "react-router-dom";
 import { MenuButton } from "../MenuButton";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
-  const [point] = useMediaQuery("(min-width: 560px)");
+  const [point] = useMediaQuery("(min-width: 480px)");
+  const [point1] = useMediaQuery("(min-width: 560px)");
+
+  const link = window.location.href;
+  const splitLink = link.split("/");
+  const compLink = splitLink[splitLink.length - 1];
+
+  console.log(compLink);
+
+  const navigate = useNavigate();
   return (
     <Flex
-      h="15vh"
+      h="85px"
       w="100%"
       background="rgba(0, 0, 0, 0.2)"
       boxShadow="xl"
-      sx={{ "backdrop-filter": "blur(7px)" }}
+      sx={{ backdropFilter: "blur(7px)" }}
       justifyContent="space-around"
       alignItems="center"
       color="white"
-      position="absolute"
+      position="fixed"
       top="0"
     >
       {point ? (
         <Button
+          onClick={() => navigate("/login")}
           variant="outline"
           color="white"
           _hover={{ color: "black", bg: "white" }}
@@ -30,12 +41,24 @@ export const Header = () => {
         <MenuButton />
       )}
 
-      {point ? <Link to="/">Home</Link> : null}
-      {point ? <Link to="#">Sobre nós</Link> : null}
+      {point ? (
+        <Link as={ReachLink} to="/">
+          Home
+        </Link>
+      ) : null}
+      {point1 ? <Link href="/#assistencia">Assistencias</Link> : null}
 
       <Image src={Logo} alt="logo" w="50px" order={[-1, 0]} />
-      {point ? <Link to="#">Colaboradores</Link> : null}
-      {point ? <Link to="#">Contato</Link> : null}
+      {point ? (
+        <Link as={ReachLink} to="#">
+          Colaboradores
+        </Link>
+      ) : null}
+      {point1 ? (
+        <Link as={ReachLink} to="#">
+          Sobre nós
+        </Link>
+      ) : null}
 
       <Button
         order={[-2, 0]}
@@ -43,6 +66,7 @@ export const Header = () => {
         size="md"
         color="white"
         bg="feedback.danger"
+        _hover={{ bg: "#d8786b" }}
       >
         Doe Agora
       </Button>
