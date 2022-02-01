@@ -59,12 +59,12 @@ export const RegisterForm = () => {
       w={["100%", "100%", "40%", "40%"]}
       padding="30px 15px"
       border="3px solid"
-      borderColor="gray.100"
-      bg="white"
-      color="gray.900"
+      borderColor="gray.100.100"
+      bg="gray.100.100"
+      color="gray.300.100"
       mt={["4", "4", "0"]}
     >
-      <Heading size="lg" textAlign="center">
+      <Heading size="lg" textAlign="center" fontWeight="normal">
         Seja bem vindo!
       </Heading>
       <VStack spacing="5" mt="6">
@@ -82,13 +82,13 @@ export const RegisterForm = () => {
         ) : null}
         <Button
           isLoading={loading}
-          bg="#FFB703"
+          bg="primary.350"
           w="100%"
-          color="black"
+          color="gray.300.100"
           h="60px"
           borderRadius="8px"
           _hover={{
-            background: "#c28b00",
+            background: "primary.300",
           }}
           type="submit"
         >

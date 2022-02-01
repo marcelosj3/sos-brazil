@@ -53,17 +53,15 @@ const NewsProvider = ({ children }: INewsProviderProps) => {
       "brasil mineração desastre",
       "brasil barragem",
     ];
+
     const apiKey = "1669ca52172c438ba793576de9565f61";
 
-    await axios
-      .get(
-        `https://newsapi.org/v2/everything?q=${
-          searchQuery[Math.floor(Math.random() * searchQuery.length)]
-        }&apiKey=${apiKey}`
-      )
-      .then((response) => {
-        console.log(response);
+    const randomNews =
+      searchQuery[Math.floor(Math.random() * searchQuery.length)];
 
+    await axios
+      .get(`https://newsapi.org/v2/everything?q=${randomNews}&apiKey=${apiKey}`)
+      .then((response) => {
         const data = response.data.articles as INewsDataState[];
 
         const filteredData = data.filter(

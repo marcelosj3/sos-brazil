@@ -17,9 +17,11 @@ export const AssistanceBulletSlider = ({
 
   return (
     <Flex
-      marginTop="40px"
+      marginTop={["24px", "40px"]}
       position="relative"
       display={["flex", "flex", "flex", "none"]}
+      alignItems="center"
+      justifyContent="center"
     >
       {bullets.map((index) => (
         <Box
@@ -27,7 +29,7 @@ export const AssistanceBulletSlider = ({
           h="10px"
           w="10px"
           borderRadius="50%"
-          bg="primary.300"
+          bg="primary.350"
           marginLeft={index ? "16px" : "0px"}
           cursor="pointer"
           onClick={() => handleScrollTo(index + 1)}

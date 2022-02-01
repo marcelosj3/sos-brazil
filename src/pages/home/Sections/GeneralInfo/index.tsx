@@ -7,7 +7,8 @@ export const GeneralInfo = () => {
     <Flex
       h="100vh"
       w="100%"
-      paddingTop="150px"
+      minH="600px"
+      paddingTop="85px"
       backgroundImage={backgroundImage}
       backgroundPosition="center"
       backgroundSize="cover"
@@ -18,9 +19,9 @@ export const GeneralInfo = () => {
     >
       <Heading
         fontSize={["2xl", "3xl", "4xl", "5xl"]}
-        color="gray.100"
+        color="gray.100.100"
         margin={["16px"]}
-        marginBottom={["32px", "48px"]}
+        marginBottom={["24px", "48px"]}
         maxW={["300px", "400px", "600px", "1200px"]}
         textAlign="center"
       >
@@ -28,9 +29,9 @@ export const GeneralInfo = () => {
       </Heading>
       <Text
         fontSize={["sm", "md"]}
-        color="gray.100"
-        marginBottom={["48px", "80px"]}
-        maxW={["150px", "350px", "600px"]}
+        color="gray.100.100"
+        marginBottom={["24px", "48px", "80px"]}
+        maxW={["200px", "350px", "600px"]}
         textAlign="center"
       >
         Asdflkjaertvlkjasntvkjn (sits on keyboard) leave hair on owner's clothes
@@ -40,23 +41,23 @@ export const GeneralInfo = () => {
       </Text>
       <Flex flexDirection={["column", "row"]}>
         <Button
-          bg="primary.300"
-          color="gray.300"
+          bg="primary.350"
+          color="gray.300.100"
           h={["40px", "64px"]}
           w={["160px", "216px"]}
           marginBottom={["20px", "0"]}
-          _hover={{ bg: "primary.200" }}
+          _hover={{ bg: "primary.300" }}
           _focus={{}}
         >
           Quero Ajudar
         </Button>
         <Button
           bg="secondary.300"
-          color="gray.100"
+          color="gray.100.100"
           h={["40px", "64px"]}
           w={["160px", "216px"]}
           marginLeft={["0", "40px", "80px"]}
-          _hover={{ bg: "secondary.200" }}
+          _hover={{ bg: "secondary.250" }}
           _focus={{}}
         >
           Preciso de ajuda

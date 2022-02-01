@@ -66,7 +66,7 @@ export const AssistanceBox = ({ value, setScrollPosition }: IAssistanceBox) => {
       gap="20px"
       borderRadius="8px"
       margin={["0px", "0px", "0px", "16px"]}
-      marginTop={["60px", "40px", "20px"]}
+      marginTop={["30px", "40px", "20px"]}
       w={["300px", "400px", "650px", "900px", "1000px"]}
       overflowY="hidden"
       overflowX={["scroll", "scroll", "scroll", "hidden"]}
