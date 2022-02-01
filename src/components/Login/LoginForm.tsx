@@ -40,16 +40,20 @@ export const LoginForm = () => {
     <Grid
       onSubmit={handleSubmit(handleLogin)}
       as="form"
-      w={["100%", "100%", "40%", "40%"]}
+      w={["100%"]}
+      maxW={["300px", "400px"]}
       padding="30px 15px"
       border="3px solid"
       borderColor="gray.100"
       bg="white"
       color="gray.900"
-      mt={["4", "4", "0"]}
     >
-      <Heading size="lg" textAlign="center">
-        Estou pronto para mudar o mundo!
+      <Heading fontSize={["1xl", "3xl"]}
+        fontWeight={["normal"]} 
+        textAlign="center"
+        lineHeight={["30px", "48px"]}
+        >
+        Estou pronte para mudar o mundo!
       </Heading>
       <VStack spacing="5" mt="6">
         <Input
@@ -68,29 +72,34 @@ export const LoginForm = () => {
         />
         <Button
           isLoading={loading}
-          bg="#FFB703"
+          bg="primary.350"
           w="100%"
           color="black"
-          h="60px"
+          h={["40px", "48px"]}
           borderRadius="8px"
           _hover={{
-            background: "#c28b00",
+            background: "primary.300",
           }}
           type="submit"
         >
           Entrar
         </Button>
-        <Text>Ainda não possui uma conta? Faça o seu cadastro!</Text>
+        <Text 
+          color="gray.250">
+          Ainda não possui uma conta? Faça o seu cadastro!
+        </Text>
         <Button
           isLoading={loading}
           bg="transparent"
-          border="1px solid #1B4332"
+          border="1px solid"
+          borderColor="secondary.300"
           w="100%"
-          color="#1B4332"
-          h="60px"
+          color="secondary.300"
+          h={["40px", "48px"]}
           borderRadius="8px"
           _hover={{
-            background: "#1B4332",
+            background: "secondary.250",
+            color: "white"
           }}
           type="submit"
         >
