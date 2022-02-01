@@ -8,7 +8,7 @@ export const theme = extendTheme({
       200: "#FAEDCD",
       250: "#D6C496",
       300: "#ffc22a",
-      350: "#FFB703"
+      350: "#FFB703",
     },
     secondary: {
       100: "#8DA89D",
@@ -18,10 +18,11 @@ export const theme = extendTheme({
       300: "#1B4332",
     },
     gray: {
-      100: "#F2F2F2",
+      100: { 100: "#F2F2F2", 15: "rgba(242,242,242,0.15)" },
+
       150: "#C0C0C0",
       200: "#919191",
-      "200-30%": "rgba(145,145,145,30)",
+      "200-30%": "rgba(145,145,145,0.3)",
       250: "#5E5E5E",
       300: "#1D1D1D",
       "300-20%": "rgba(29,29,29,20)",
@@ -29,7 +30,7 @@ export const theme = extendTheme({
     feedback: {
       success: "#5B9632",
       warning: "#FFBB04",
-      danger: "123",
+      danger: "#CF4A38",
       info: "#1A9994",
     },
   },

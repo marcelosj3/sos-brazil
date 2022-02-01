@@ -83,6 +83,7 @@ export const OfferedAssistance = () => {
 
   return (
     <Box
+      id="assistencia"
       h="100vh"
       display="flex"
       flexDirection="column"

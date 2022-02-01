@@ -13,7 +13,7 @@ export const NewsContainer = () => {
   const { loadNews, newsData } = useNews();
 
   useEffect(() => {
-    loadNews().then((_) => setLoading(true));
+    loadNews().then((_) => setLoading(false));
   }, [loadNews]);
 
   const skeletonQuantity = Array.from(Array(3).keys());
