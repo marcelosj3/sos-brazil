@@ -1,14 +1,13 @@
 import { Button, Flex, Image, useMediaQuery, Link } from "@chakra-ui/react";
-import { Link as ReachLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link as ReachLink, useNavigate } from "react-router-dom";
 
 import { MenuButton } from "../MenuButton";
 
 import Logo from "../../assets/logo-sos-Brasil.svg";
 
 export const Header = () => {
-  const [point] = useMediaQuery("(min-width: 480px)");
-  const [point1] = useMediaQuery("(min-width: 560px)");
+  const [MediaQuery480] = useMediaQuery("(min-width: 480px)");
+  const [MediaQuery560] = useMediaQuery("(min-width: 560px)");
 
   const navigate = useNavigate();
   return (
@@ -24,7 +23,7 @@ export const Header = () => {
       position="fixed"
       top="0"
     >
-      {point ? (
+      {MediaQuery480 ? (
         <Button
           onClick={() => navigate("/login")}
           variant="outline"
@@ -37,20 +36,20 @@ export const Header = () => {
         <MenuButton />
       )}
 
-      {point ? (
+      {MediaQuery480 ? (
         <Link as={ReachLink} to="/">
           Home
         </Link>
       ) : null}
-      {point1 ? <Link href="/#assistencia">Assistencias</Link> : null}
+      {MediaQuery560 ? <Link href="/#assistencia">Assistencias</Link> : null}
 
       <Image src={Logo} alt="logo" w="50px" order={[-1, 0]} />
-      {point ? (
+      {MediaQuery480 ? (
         <Link as={ReachLink} to="#">
           Colaboradores
         </Link>
       ) : null}
-      {point1 ? (
+      {MediaQuery560 ? (
         <Link as={ReachLink} to="#">
           Sobre nós
         </Link>

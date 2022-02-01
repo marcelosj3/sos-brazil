@@ -1,4 +1,5 @@
 import { Flex, Image } from "@chakra-ui/react";
+
 import { Header } from "../../components/Header";
 import { LoginForm } from "../../components/Login/LoginForm";
 
@@ -20,13 +21,13 @@ export const Login = () => {
         flexDirection={["column", "column", "row", "row"]}
         alignItems="center"
       >
-      <Image
+        <Image
           src={imageLogin}
           alt="mundo na mão"
           // boxSize={["120px", "120px", "500px", "500px"]}
-          w={["0px", "0px", "200px", "400px"]}  
+          w={["0px", "0px", "200px", "400px"]}
           display={["none", "none", "none", "block"]}
-          mr={["0px", "0px", "20px", "100px"]}  
+          mr={["0px", "0px", "20px", "100px"]}
         />
         <LoginForm />
       </Flex>
