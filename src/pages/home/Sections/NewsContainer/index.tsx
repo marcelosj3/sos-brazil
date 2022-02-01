@@ -1,13 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Carousel } from "3d-react-carousal";
 
 import { InfoCard } from "../../../../components/InfoCard";
 import { useNews } from "../../../../contexts/NewsContext";
-
-import { Carousel } from "3d-react-carousal";
+import { SkeletonInfoCard } from "../../../../components/SkeletonInfoCard";
 
 import "./style.css";
-import { useState } from "react";
 
 export const NewsContainer = () => {
   const [loading, setLoading] = useState(true);
@@ -17,8 +16,10 @@ export const NewsContainer = () => {
     loadNews().then((_) => setLoading(false));
   }, [loadNews]);
 
+  const skeletonQuantity = Array.from(Array(3).keys());
+
   let slides = loading
-    ? [1, 2, 3]
+    ? skeletonQuantity.map((_, index) => <SkeletonInfoCard key={index} />)
     : newsData.map(({ url, urlToImage, title, description }, index) => (
         <InfoCard
           key={index}

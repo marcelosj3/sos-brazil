@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
   createContext,
   ReactNode,
@@ -6,6 +5,7 @@ import {
   useContext,
   useState,
 } from "react";
+import axios from "axios";
 
 interface INewsProviderProps {
   children: ReactNode;
