@@ -7,6 +7,7 @@ export const GeneralInfo = () => {
     <Flex
       h="100vh"
       w="100%"
+      paddingTop="150px"
       backgroundImage={backgroundImage}
       backgroundPosition="center"
       backgroundSize="cover"
