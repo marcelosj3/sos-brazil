@@ -1,24 +1,36 @@
 import { HStack, useRadioGroup } from "@chakra-ui/react";
+import { Control, useController } from "react-hook-form";
 
 import { RadioCard } from "./RadioCard";
 
+interface IOptions {
+  value: string;
+}
 interface IRadioGroupProps {
   options: string[];
   name: string;
   defaultValue?: string;
-  onChange?: (e: string) => void;
+  control: Control<IOptions>;
 }
 
 export const RadioGroup = ({
   options,
   name,
   defaultValue,
-  onChange,
+  control,
 }: IRadioGroupProps) => {
+  const {
+    field,
+    formState: { errors },
+  } = useController({
+    control,
+    name,
+    rules: { required: { value: true, message: "Required field" } },
+  });
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: name,
-    defaultValue: defaultValue,
-    onChange: onChange,
+    value: field.value,
+    onChange: field.onChange,
   });
 
   const group = getRootProps();

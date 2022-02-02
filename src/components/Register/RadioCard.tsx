@@ -17,17 +17,16 @@ export const RadioCard = ({ children, ...rest }: IRadioCardProps) => {
       <Box
         {...checkbox}
         cursor="pointer"
-        borderWidth="1px"
+        border="1px solid"
+        borderColor="secondary.300"
         borderRadius="md"
         boxShadow="md"
         _checked={{
-          bg: "primary.350",
-          color: "gray.300.100",
-          borderColor: "primary.350",
+          bg: "secondary.300",
+          color: "gray.100.100",
+          borderColor: "secondary.300",
         }}
-        _focus={{
-          boxShadow: "outline",
-        }}
+        _focus={{}}
         px={5}
         py={3}
       >

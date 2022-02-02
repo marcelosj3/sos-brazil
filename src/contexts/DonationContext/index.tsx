@@ -30,17 +30,17 @@ const DonationsContext = createContext<IDonationsContextData>(
   {} as IDonationsContextData
 );
 
-const useAuth = () => {
+const useDonation = () => {
   const context = useContext(DonationsContext);
 
   if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider!");
+    throw new Error("useDonation must be used within an DonationProvider!");
   }
 
   return context;
 };
 
-const AuthProvider = ({ children }: IDonationProviderProps) => {
+const DonationProvider = ({ children }: IDonationProviderProps) => {
   const [donations, setDonations] = useState<Array<IDonations>>(
     [] as Array<IDonations>
   );
@@ -83,4 +83,4 @@ const AuthProvider = ({ children }: IDonationProviderProps) => {
   );
 };
 
-export { useAuth, AuthProvider };
+export { useDonation, DonationProvider };
