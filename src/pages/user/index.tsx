@@ -25,10 +25,24 @@ export const User = () => {
   return (
     <Flex w="100vw" h="100vh" flexDirection="column" alignContent="center">
       <Header />
-      <Heading pt="85px" textAlign="center" h="150px">
-        <Text>Meu perfil</Text>
+      <Heading  
+        display="flex"
+        pt="85px" 
+        textAlign="center" 
+        alignItems="center"
+        h={["25vh"]}
+        justifyContent="center"
+      >
+        <Text
+          fontSize={["3xl", "3xl", "4xl", "4xl"]}
+          fontWeight="medium"
+        >Meu perfil</Text>
       </Heading>
-      <Box h="100px">
+      <Box 
+        display="flex"
+        h={["10vh", "15vh"]}
+        justifyContent="center"
+        >
         <Center>
           <HStack spacing="8" color="gray.600" fontSize={["sm", "lg"]}>
             {" "}
