@@ -12,7 +12,7 @@ export const UserDonations = () => {
   const user = (id && id) || "";
 
   const myDonations = donations.filter(
-    (donation) => donation.userId === Number(user)
+    (donation) => donation.userId !== Number(user)
   );
 
   useEffect(() => {
@@ -23,13 +23,28 @@ export const UserDonations = () => {
     <Grid
       display="flex"
       w="100vw"
-      h="400px"
+      maxW="1200px"
+      h="60vh"
+      m="0 auto"
       justifyContent="center"
+      alignItems="center"
       flexWrap={"wrap"}
       gridTemplateColumns="repeat(auto-fill,300px)"
       gap="25px"
       padding={"35px"}
-      overflow={"scroll"}
+      overflowY={["scroll", "scroll"]}
+      css={{
+        '&::-webkit-scrollbar': {
+          width: "4px",
+        },
+        '&::-webkit-scrollbar-track': {
+          width: "6px",
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: "transparent",
+          borderRadius: "24px",
+        },
+      }}
     >
       {myDonations.length > 0 ? (
         myDonations.map((card, index) => (
@@ -38,21 +53,33 @@ export const UserDonations = () => {
             w="300px"
             background="white"
             display={"flex"}
-            justifyContent={"center"}
+            justifyContent={"space-evenly"}
             alignItems={"center"}
             flexDirection={"column"}
             boxShadow={"2xl"}
-            h="250px"
+            h="300px"
+            borderRadius="8px"
+            padding="30px"
           >
-            <Text color="gray.250" fontSize={"xl"}>
+            <Text color="gray.250" fontSize={"xl"} >
               Eu contribuí com{" "}
             </Text>
             <Heading color="secondary.300" fontSize={"4xl"}>
+<<<<<<< HEAD
               R${card.value}
+=======
+              {"R$"}{card.value}
+>>>>>>> bcd12b5dc7a28efe4e4680b12393367ada69e60b
             </Heading>
-            <Text>
+            <Text textAlign="center">
               {" "}
-              {card.partner && "Para a instituição"} {card.partner}
+              {card.partner && "Para a instituição"} 
+            </Text>
+            <Text 
+              fontWeight={"bold"}
+              color="secondary.250"  
+            >
+              {card.partner}
             </Text>
           </Box>
         ))

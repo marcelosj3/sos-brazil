@@ -23,22 +23,22 @@ export const AssistanceBox = ({ value, setScrollPosition }: IAssistanceBox) => {
     {
       icon: "medical",
       title: "Assistência médica",
-      description: `As lick i the shoes eat owner's food experiences short bursts of poo-phoria after going to the loo but meow meow you are my owner`,
+      description: `Doe para instituições de assistência médica a populações em situação de vulnerabilidade e/ou locais remotos. Apoie a luta por saúde!`,
     },
     {
       icon: "healthyFood",
-      title: "Comida saudável",
-      description: `As lick i the shoes eat owner's food experiences short bursts of poo-phoria after going to the loo but meow meow you are my owner`,
+      title: "Segurança Alimentar",
+      description: `Doe para instituições que trabalham levando comida saudável a mesa de milhares de brasileiros. Apoie a luta contra a fome!`,
     },
     {
       icon: "legalAssistance",
       title: "Assistência Jurídica",
-      description: `As lick i the shoes eat owner's food experiences short bursts of poo-phoria after going to the loo but meow meow you are my owner`,
+      description: `Doe para que instituições voltadas para a assistência jurídica gratuita continuem assistindo quem mais precisa. Apoie a luta por direitos!`,
     },
     {
       icon: "loveAndCare",
-      title: "Cuidados e amparo",
-      description: `As lick i the shoes eat owner's food experiences short bursts of poo-phoria after going to the loo but meow meow you are my owner`,
+      title: "Seguridade Social",
+      description: `Doe para instituições voltadas para a Seguridade Social, resguardando direitos básicos como Moradia. Apoie a luta por habitação!`,
     },
   ];
 
@@ -90,7 +90,9 @@ export const AssistanceBox = ({ value, setScrollPosition }: IAssistanceBox) => {
           <Heading fontSize="lg" marginY="20px">
             {title}
           </Heading>
-          <Text color="gray.250">{description}</Text>
+          <Text textAlign="justify" color="gray.250">
+            {description}
+          </Text>
         </AssistanceCard>
       ))}
     </Grid>
