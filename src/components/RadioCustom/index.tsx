@@ -12,7 +12,7 @@ interface ICustomRadioProps {
   money?: boolean;
 }
 
-export const CustomRadio = ({
+export const RadioCustom = ({
   value,
   label,
   onBlur,
@@ -30,7 +30,7 @@ export const CustomRadio = ({
       <Flex
         className="input__label"
         bg={"transparent"}
-        w="150px"
+        w={["125px", "150px"]}
         h="50px"
         borderRadius="8px"
         border="1px solid"

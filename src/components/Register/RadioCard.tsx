@@ -11,9 +11,6 @@ export const RadioCard = ({ children, ...rest }: IRadioCardProps) => {
   const input = getInputProps();
   const checkbox = getCheckboxProps();
 
-  console.log(input);
-  console.log(checkbox);
-
   return (
     <Box as="label">
       <input {...input} />

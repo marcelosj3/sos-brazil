@@ -11,8 +11,8 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { CustomRadio } from "./CustomRadio";
-import { DonationValidation } from "./Donations";
+import { RadioCustom } from "../RadioCustom";
+import { DonationValidation } from "./Validation";
 
 interface IDonationData {
   partner: string;
@@ -45,6 +45,8 @@ export const DonationForm = () => {
       flexDirection="column"
       alignItems="center"
       onSubmit={handleSubmit(onSubmit)}
+      maxW="800px"
+      marginX="auto"
     >
       <Controller
         control={control}
@@ -55,11 +57,21 @@ export const DonationForm = () => {
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
-            w="800px"
           >
-            <RadioGroup name="value">
+            <RadioGroup
+              name="value"
+              gap="8px"
+              display={["grid"]}
+              gridTemplateColumns={[
+                "repeat(2, 150px)",
+                "repeat(2, 150px)",
+                "repeat(4, 150px)",
+              ]}
+              justifyItems="center"
+              alignItems="center"
+            >
               {options.map((value) => (
-                <CustomRadio
+                <RadioCustom
                   money
                   key={value}
                   onBlur={onBlur}
@@ -69,7 +81,7 @@ export const DonationForm = () => {
                   onClick={() => setAnyValue(false)}
                 />
               ))}
-              <CustomRadio
+              <RadioCustom
                 onBlur={onBlur}
                 onChange={onChange}
                 label={"Outro valor"}
@@ -78,14 +90,14 @@ export const DonationForm = () => {
               />
             </RadioGroup>
             {anyValue && (
-              <Box position="relative" mt="32px">
+              <Box position="relative" mt={["16px", "32px"]}>
                 <Input
                   type="number"
                   placeholder="Digite quanto deseja doar"
                   onBlur={onBlur}
                   onChange={onChange}
                   ref={ref}
-                  w={["240px", "336px"]}
+                  w={["280px", "336px"]}
                   py="16px"
                   pl="40px"
                   _focus={{}}
@@ -102,7 +114,13 @@ export const DonationForm = () => {
               </Text>
             )}
 
-            <Text fontSize="1xl" color="gray.250" mt="48px">
+            <Text
+              fontSize={["lg", "1xl"]}
+              color="gray.250"
+              mt={["24px", "48px"]}
+              textAlign="center"
+              w={["300px", "400px"]}
+            >
               Selecione a instituição que deseja ajudar:
             </Text>
 
@@ -110,7 +128,7 @@ export const DonationForm = () => {
               {...register("partner")}
               placeholder="Minha instituição"
               mt="24px"
-              w={["240px", "336px"]}
+              w={["280px", "336px"]}
               _focus={{}}
             >
               <option value="option-1">opcao 1</option>{" "}
@@ -129,7 +147,7 @@ export const DonationForm = () => {
 
       <Button
         isLoading={loading}
-        w="320px"
+        w={["280px", "350px"]}
         bg="primary.350"
         _hover={{ bg: "primary.300" }}
         type="submit"
