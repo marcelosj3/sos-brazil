@@ -27,11 +27,11 @@ export const Partners = () => {
   }, []);
 
   return (
-    <Flex flexDirection="column" h="100vh" w="100" bgColor="colors.primary.200">
+    <Flex flexDirection="column" h="100vh" bgColor="colors.primary.200">
       <Header />
       <VStack spacing="200px">
         <Flex
-          w="100"
+          w="100%"
           marginTop="200px"
           flexDirection="column"
           justifyContent="center"
@@ -40,45 +40,78 @@ export const Partners = () => {
           <Heading as="h3" size="lg">
             Escolha, Clique e Doe!
           </Heading>
-          <Flex flexWrap="wrap" color="blackAlpha.500" mt="20px">
-            <HStack spacing="20px 20px">
-              <Button
-                onClick={renderPartners}
-                _hover={{ color: "secondary.300" }}
-              >
-                Todos
-              </Button>
-              <Button
-                onClick={() => partnersFiltered("Preservação Ambiental")}
-                _hover={{ color: "secondary.300" }}
-              >
-                Preservação Ambiental
-              </Button>
-              <Button
-                onClick={() => partnersFiltered("Moradia")}
-                _hover={{ color: "secondary.300" }}
-              >
-                Moradia
-              </Button>
-              <Button
-                onClick={() => partnersFiltered("Saúde")}
-                _hover={{ color: "secondary.300" }}
-              >
-                Saúde
-              </Button>
-              <Button
-                onClick={() => partnersFiltered("Seguridade Social")}
-                _hover={{ color: "secondary.300" }}
-              >
-                Seguridade Social
-              </Button>
-              <Button
-                onClick={() => partnersFiltered("Assessoria Jurídica")}
-                _hover={{ color: "secondary.300" }}
-              >
-                Assessoria Jurídica
-              </Button>
-            </HStack>
+          <Flex
+            w={["320px", "400px", "700px", "930px"]}
+            overflowX={["scroll", "scroll"]}
+            color="blackAlpha.500"
+            mt="20px"
+            sx={{
+              "::-webkit-scrollbar": {
+                height: "4px",
+                width: "2px",
+                borderRadius: "4px",
+              },
+              "::-webkit-scrollbar-track": {
+                background: "transparent",
+              },
+              "::-webkit-scrollbar-thumb": {
+                background: "secondary.300",
+                borderRadius: "6px",
+              },
+              "::-webkit-scrollbar-thumb:hover": {
+                background: "secondary.200",
+                borderRadius: "6px",
+              },
+            }}
+          >
+            <Button
+              flex="1 0 auto"
+              onClick={renderPartners}
+              _hover={{ color: "secondary.300" }}
+              _focus={{}}
+            >
+              Todos
+            </Button>
+            <Button
+              flex="1 0 auto"
+              onClick={() => partnersFiltered("Preservação Ambiental")}
+              _hover={{ color: "secondary.300" }}
+              _focus={{}}
+            >
+              Preservação Ambiental
+            </Button>
+            <Button
+              flex="1 0 auto"
+              onClick={() => partnersFiltered("Moradia")}
+              _hover={{ color: "secondary.300" }}
+              _focus={{}}
+            >
+              Moradia
+            </Button>
+            <Button
+              flex="1 0 auto"
+              onClick={() => partnersFiltered("Saúde")}
+              _hover={{ color: "secondary.300" }}
+              _focus={{}}
+            >
+              Saúde
+            </Button>
+            <Button
+              flex="1 0 auto"
+              onClick={() => partnersFiltered("Seguridade Social")}
+              _hover={{ color: "secondary.300" }}
+              _focus={{}}
+            >
+              Seguridade Social
+            </Button>
+            <Button
+              flex="1 0 auto"
+              onClick={() => partnersFiltered("Assessoria Jurídica")}
+              _hover={{ color: "secondary.300" }}
+              _focus={{}}
+            >
+              Assessoria Jurídica
+            </Button>
           </Flex>
         </Flex>
       </VStack>

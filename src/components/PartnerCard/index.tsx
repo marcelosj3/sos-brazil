@@ -32,7 +32,30 @@ export const PartnerCard = (partner: IPartnersDataState) => {
       <Heading fontSize="md" as="h3">
         {partner.name}
       </Heading>
-      <Text m="2px" p="5px" fontSize="xs">
+      <Text
+        textAlign="justify"
+        h="100px"
+        overflowY="scroll"
+        lineHeight="2"
+        m="2px"
+        p="5px"
+        fontSize="xs"
+        sx={{
+          "::-webkit-scrollbar": {
+            width: "4px",
+            borderRadius: "4px",
+          },
+          "::-webkit-scrollbar-track": {
+            background: "transparent",
+          },
+          "::-webkit-scrollbar-thumb": {
+            background: "primary.100",
+          },
+          "::-webkit-scrollbar-thumb:hover": {
+            background: "primary.200",
+          },
+        }}
+      >
         {partner.description}
       </Text>
       <Button
