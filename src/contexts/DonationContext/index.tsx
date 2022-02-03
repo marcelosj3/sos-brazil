@@ -15,10 +15,18 @@ interface IDonationProviderProps {
 interface IDonations {
   value: number;
   date: string;
+  userID: number;
+}
+
+interface IDonationsHere {
+  type_of_contribution: string;
+  value: number;
+  userId: number;
+  id: number;
 }
 
 interface IDonationsContextData {
-  donations: Array<IDonations>;
+  donations: Array<IDonationsHere>;
   registerDonations: (
     { value, date }: IDonations,
     accessToken: string
@@ -41,8 +49,8 @@ const useDon = () => {
 };
 
 const DonProvider = ({ children }: IDonationProviderProps) => {
-  const [donations, setDonations] = useState<Array<IDonations>>(
-    [] as Array<IDonations>
+  const [donations, setDonations] = useState<Array<IDonationsHere>>(
+    [] as Array<IDonationsHere>
   );
 
   const registerDonations = useCallback(
@@ -73,7 +81,7 @@ const DonProvider = ({ children }: IDonationProviderProps) => {
   return (
     <DonationsContext.Provider
       value={{
-        donations: donations,
+        donations,
         registerDonations,
         getDonations,
       }}

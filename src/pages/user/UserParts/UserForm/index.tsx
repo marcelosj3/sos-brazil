@@ -1,49 +1,68 @@
-import { Box, Button, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Text,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { FaRegEdit } from "react-icons/fa";
 
 import { useAuth } from "../../../../contexts/AuthContext";
 import { useUser } from "../../../../contexts/UserContext";
+import { UserModal } from "../userModal";
 
-export const UserForm = () => {
-  const { user, accessToken } = useAuth();
+export const UserInfo = () => {
   const { id } = useParams();
-  const { userAtt, userData, userMan } = useUser();
-
+  const { userData, userMan } = useUser();
   const userId = (id && id) || "";
-
-  interface Idata {
-    name: string;
-    email: string;
-    social_number: string;
-    password: string;
-  }
-
-  const test = {
-    email: "josue@joao.com",
-    name: "josue",
-    social_number: "123456789",
-    password: "123456",
-  };
-  const attDados = (usuario: string, token: string, obj: Idata) => {
-    userAtt(usuario, token, obj);
-    userData(usuario, token);
-  };
-
-  console.log(userMan);
+  const { accessToken } = useAuth();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  useEffect(() => {
+    userData(userId, accessToken);
+  }, [userId]);
 
   return (
-    <Box>
-      {/* <Header /> */}
-      <Button
-        position="absolute"
-        z-index="2"
-        onClick={() => {
-          attDados(userId, accessToken, test);
-        }}
-      >
-        att dados
-      </Button>
-      user
-    </Box>
+    <Flex w="100vw" justifyContent={"space-evenly"} alignContent={"center"}>
+      <Grid>
+        <Box>
+          <Text> Nome : {userMan.name}</Text>
+          <Text> Email : {userMan.email}</Text>
+          <Text> Telefone : {userMan.social_number}</Text>
+        </Box>
+      </Grid>
+      <Grid>
+        <Button
+          _focus={{}}
+          bg="feedback.success"
+          size="lg"
+          leftIcon={<FaRegEdit />}
+          variant={"solid"}
+          onClick={() => onOpen()}
+        >
+          Editar informações
+        </Button>
+        <Modal onClose={onClose} size={"xl"} isOpen={isOpen}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Editar Informações</ModalHeader>
+            <ModalCloseButton _focus={{}} />
+            <ModalBody>
+              <UserModal />
+            </ModalBody>
+            <ModalFooter></ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Grid>
+    </Flex>
   );
 };

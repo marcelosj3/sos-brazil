@@ -15,11 +15,11 @@ interface IAppProviderProps {
 export const AppProvider = ({ children }: IAppProviderProps) => (
   <AuthProvider>
     <NewsProvider>
-      <UserProvider>
-        <DonProvider>
-          <ChakraProvider theme={theme}>{children}</ChakraProvider>
-        </DonProvider>
-      </UserProvider>
+      <DonProvider>
+        <ChakraProvider theme={theme}>
+          <UserProvider>{children}</UserProvider>
+        </ChakraProvider>
+      </DonProvider>
     </NewsProvider>
   </AuthProvider>
 );

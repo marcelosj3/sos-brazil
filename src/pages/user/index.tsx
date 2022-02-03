@@ -4,6 +4,7 @@ import { Box, Flex, Heading, Text, Center, HStack } from "@chakra-ui/react";
 
 import { Header } from "../../components/Header";
 import { UserDonations } from "./UserParts/UserDonations";
+import { UserInfo } from "./UserParts/UserForm";
 
 export const User = () => {
   const [clickInfo, setClickInfo] = useState<Boolean>(false);
@@ -30,7 +31,7 @@ export const User = () => {
       w="100vw"
       h="100vh"
       flexDirection="column"
-      justifyContent="center"
+      justifyContent="space-evenly"
       alignContent="center"
     >
       <Header />
@@ -42,13 +43,15 @@ export const User = () => {
           <HStack spacing="8" color="gray.600" fontSize={["sm", "lg"]}>
             {" "}
             <Text
+              cursor={"pointer"}
               onClick={() => donation()}
               borderBottom={buttonDonate}
               borderColor={"secondary.300"}
             >
-              Minhas Doalçoes
+              Minhas Doações
             </Text>
             <Text
+              cursor={"pointer"}
               onClick={() => info()}
               borderBottom={buttonInfo}
               borderColor={"secondary.300"}
@@ -58,7 +61,7 @@ export const User = () => {
           </HStack>
         </Center>
       </Box>
-      <Box> {click ? <UserDonations /> : <></>}</Box>
+      <Box> {click ? <UserDonations /> : <UserInfo />}</Box>
     </Flex>
   );
 };

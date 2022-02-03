@@ -17,7 +17,7 @@ import { useAuth } from "../../contexts/AuthContext";
 export const MenuButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { accessToken, user } = useAuth();
+  const { accessToken, user, signOut } = useAuth();
 
   return (
     <>
@@ -61,7 +61,13 @@ export const MenuButton = () => {
               <Link as={ReachLink} to={`/user/${user.id}`} _focus={{}}>
                 User
               </Link>
-              <Text onClick={() => {}}>Logout</Text>
+              <Text
+                onClick={() => {
+                  signOut();
+                }}
+              >
+                Logout
+              </Text>
             </Grid>
           ) : (
             <Link as={ReachLink} to="/Login" _focus={{}} mt="16px">

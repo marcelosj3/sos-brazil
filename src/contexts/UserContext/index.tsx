@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
+import { useToast } from "@chakra-ui/react";
 
 import { api } from "../../services/api";
 
@@ -22,7 +29,7 @@ interface IUser {
 }
 
 interface IDataUser {
-  userAtt: (id: string, acessToken: string, data: IData) => void;
+  userAtt: (id: string, acessToken: string, data: IData) => Promise<void>;
   userData: (id: string, acessToken: string) => void;
   userMan: IUser;
 }
@@ -41,14 +48,39 @@ const useUser = () => {
 
 const UserProvider = ({ children }: IUserProviderProps) => {
   const [userMan, setUserMan] = useState<IUser>({} as IUser);
-  const userAtt = (id: string, acessToken: string, data: IData) => {
-    api
-      .patch(`/users/${id}`, data, {
-        headers: { Authorization: `Bearer ${acessToken}` },
-      })
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
-  };
+  const toast = useToast();
+
+  const userAtt = useCallback(
+    async (id: string, acessToken: string, data: IData) => {
+      await api
+        .patch(`/users/${id}`, data, {
+          headers: { Authorization: `Bearer ${acessToken}` },
+        })
+        .then((response) => {
+          console.log(response);
+          toast({
+            title: "Alteração de Alterados.",
+            description: "Dados atualizados com sucesso.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+            position: "top-right",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          toast({
+            title: "Alteração de Alterados.",
+            description: "Erro ao atualizar os dados.",
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+            position: "top-right",
+          });
+        });
+    },
+    []
+  );
 
   const userData = (id: string, acessToken: string) => {
     api
