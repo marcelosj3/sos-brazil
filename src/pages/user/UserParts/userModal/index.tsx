@@ -1,13 +1,6 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Input,
-  TagLabel,
-  useToast,
-  VStack,
-} from "@chakra-ui/react";
+import { useEffect } from "react";
+
+import { Box, Button, Flex, Input, TagLabel, VStack } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -15,17 +8,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useAuth } from "../../../../contexts/AuthContext";
 import { useUser } from "../../../../contexts/UserContext";
-import { useEffect } from "react";
 
 export const UserModal = () => {
-  const { user, accessToken } = useAuth();
+  const { accessToken } = useAuth();
   const { id } = useParams();
   const { userAtt, userData, userMan } = useUser();
-  const toast = useToast();
 
   const userId = (id && id) || "";
-
-  console.log(userId, accessToken);
 
   interface IData {
     name: string;
@@ -36,7 +25,6 @@ export const UserModal = () => {
 
   const attDados = (data: IData) => {
     userAtt(userId, accessToken, data);
-
     userData(userId, accessToken);
   };
 
@@ -57,9 +45,7 @@ export const UserModal = () => {
     if (userMan) {
       reset(userMan);
     }
-  }, [userMan]);
-
-  console.log(userMan);
+  }, []);
 
   return (
     <Box
@@ -72,21 +58,69 @@ export const UserModal = () => {
     >
       <VStack spacing={8}>
         {" "}
-        <Flex w="100%" justifyContent={"space-evenly"} alignItems={"center"}>
-          <TagLabel flex="1 0 auto">Nome</TagLabel>
-          <Input type="text" {...register("name")} maxW={"300px"} />
+        <Flex
+          w="100%"
+          justifyContent={"space-evenly"}
+          alignItems={"center"}
+          flexWrap={"wrap"}
+        >
+          <TagLabel flex="1 0 auto" color="feedback.success">
+            Nome
+          </TagLabel>
+          <Input
+            type="text"
+            {...register("name")}
+            maxW={"300px"}
+            variant="flushed"
+          />
         </Flex>
-        <Flex>
-          <TagLabel flex="1 0 auto">Email</TagLabel>
-          <Input type="text" {...register("email")} maxW={"300px"} />
+        <Flex
+          w="100%"
+          justifyContent={"space-evenly"}
+          alignItems={"center"}
+          flexWrap={"wrap"}
+        >
+          <TagLabel flex="1 0 auto" color="feedback.success">
+            Email
+          </TagLabel>
+          <Input
+            variant="flushed"
+            type="text"
+            {...register("email")}
+            maxW={"300px"}
+          />
         </Flex>
-        <Flex>
-          <TagLabel flex="1 0 auto">Telefone</TagLabel>
-          <Input type="number" {...register("social_number")} maxW={"300px"} />
+        <Flex
+          w="100%"
+          justifyContent={"space-evenly"}
+          alignItems={"center"}
+          flexWrap={"wrap"}
+        >
+          <TagLabel flex="1 0 auto" color="feedback.success">
+            Telefone
+          </TagLabel>
+          <Input
+            variant="flushed"
+            type="number"
+            {...register("social_number")}
+            maxW={"300px"}
+          />
         </Flex>
-        <Flex>
-          <TagLabel flex="1 0 auto">Senha</TagLabel>
-          <Input type="password" {...register("password")} maxW={"300px"} />
+        <Flex
+          w="100%"
+          justifyContent={"space-evenly"}
+          alignItems={"center"}
+          flexWrap={"wrap"}
+        >
+          <TagLabel color="feedback.success" flex="1 0 auto">
+            Senha
+          </TagLabel>
+          <Input
+            variant="flushed"
+            type="password"
+            {...register("password")}
+            maxW={"300px"}
+          />
         </Flex>
         <Button type="submit">enviar</Button>
       </VStack>

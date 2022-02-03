@@ -20,6 +20,7 @@ interface IDonations {
 
 interface IDonationsHere {
   type_of_contribution: string;
+  partner: string;
   value: number;
   userId: number;
   id: number;

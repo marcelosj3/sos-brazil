@@ -7,38 +7,29 @@ import { UserDonations } from "./UserParts/UserDonations";
 import { UserInfo } from "./UserParts/UserForm";
 
 export const User = () => {
-  const [clickInfo, setClickInfo] = useState<Boolean>(false);
   const [click, setClick] = useState<Boolean>(true);
   const [buttonDonate, setButtonDonate] = useState<string>("green solid 1px");
   const [buttonInfo, setButtonInfo] = useState<string>("");
 
   const donation = () => {
     setClick(true);
-    setClickInfo(false);
     setButtonDonate("green solid 1px");
     setButtonInfo("none");
   };
 
   const info = () => {
     setClick(false);
-    setClickInfo(true);
     setButtonDonate("none");
     setButtonInfo("solid 1px");
   };
 
   return (
-    <Flex
-      w="100vw"
-      h="100vh"
-      flexDirection="column"
-      justifyContent="space-evenly"
-      alignContent="center"
-    >
+    <Flex w="100vw" h="100vh" flexDirection="column" alignContent="center">
       <Header />
-      <Heading pt="85px" textAlign="center">
+      <Heading pt="85px" textAlign="center" h="150px">
         <Text>Meu perfil</Text>
       </Heading>
-      <Box>
+      <Box h="100px">
         <Center>
           <HStack spacing="8" color="gray.600" fontSize={["sm", "lg"]}>
             {" "}
