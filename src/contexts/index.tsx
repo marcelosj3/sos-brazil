@@ -5,6 +5,7 @@ import { AuthProvider } from "./AuthContext";
 import { NewsProvider } from "./NewsContext";
 
 import { theme } from "../styles/theme";
+import { PartnersProvider } from "./PartnersContext";
 
 interface IAppProviderProps {
   children: ReactNode;
@@ -12,8 +13,10 @@ interface IAppProviderProps {
 
 export const AppProvider = ({ children }: IAppProviderProps) => (
   <AuthProvider>
-    <NewsProvider>
-      <ChakraProvider theme={theme}>{children}</ChakraProvider>
-    </NewsProvider>
+    <PartnersProvider>
+      <NewsProvider>
+        <ChakraProvider theme={theme}>{children}</ChakraProvider>
+      </NewsProvider>
+    </PartnersProvider>
   </AuthProvider>
 );
