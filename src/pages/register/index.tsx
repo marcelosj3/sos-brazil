@@ -3,6 +3,7 @@ import { Flex, Image } from "@chakra-ui/react";
 import { RegisterForm } from "../../components/Register/RegisterForm";
 
 import imageLogin from "../../assets/worldHand.svg";
+import { Header } from "../../components/Header";
 
 export const Register = () => {
   return (
@@ -13,6 +14,7 @@ export const Register = () => {
       color="gray.100.100"
       mt="20px"
     >
+      <Header />
       <Flex
         w={["100%", "100%", "90%", "65%"]}
         justifyContent="center"
