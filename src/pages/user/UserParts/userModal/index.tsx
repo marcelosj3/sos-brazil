@@ -25,6 +25,8 @@ export const UserModal = () => {
 
   const userId = (id && id) || "";
 
+  console.log(userId, accessToken);
+
   interface IData {
     name: string;
     email: string;
@@ -52,8 +54,12 @@ export const UserModal = () => {
 
   useEffect(() => {
     userData(userId, accessToken);
-    reset(userMan);
-  }, []);
+    if (userMan) {
+      reset(userMan);
+    }
+  }, [userMan]);
+
+  console.log(userMan);
 
   return (
     <Box
