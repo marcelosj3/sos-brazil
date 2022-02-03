@@ -63,11 +63,11 @@ export const RegisterForm = () => {
         <Grid
           onSubmit={handleSubmit(handleRegister)}
           as="form"
-          w={["100%", "100%", "40%", "40%"]}
+          w={["100%"]}
+          maxW={["300px", "400px"]}
           padding="30px 15px"
           bg="transparent"
           color="gray.300.100"
-          mt={["4", "4", "0"]}
         >
           <Heading size="lg" textAlign="center" fontWeight="normal">
             Seja bem vindo!
@@ -76,7 +76,7 @@ export const RegisterForm = () => {
             <Text>Eu sou...</Text>
             <RadioGroup
               name="value"
-              gap="8px"
+              gap="30px"
               display="flex"
               widht="100%"
               gridTemplateColumns={[
