@@ -1,11 +1,11 @@
 import { Routes as RoutesSwitch, Route } from "react-router";
 
-import { PrivateRoute } from "./PrivateRoute";
-
 import { Home } from "../pages/home";
 import { Register } from "../pages/register";
 import { Login } from "../pages/login";
 import { User } from "../pages/user";
+import { Partners } from "../pages/partners";
+import { PrivateRoute } from "./PrivateRoute";
 
 export const Routes = () => (
   <RoutesSwitch>
@@ -20,5 +20,6 @@ export const Routes = () => (
         </PrivateRoute>
       }
     />
+    <Route path="/partners" element={<Partners />} />
   </RoutesSwitch>
 );

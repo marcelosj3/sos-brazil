@@ -27,9 +27,8 @@ interface IRegisterData {
   name: string;
   password: string;
   email: string;
-  social_number: string;
-  area?: string;
-  prefered_cause?: string;
+  socialNumber: string;
+  typeOfUser: string;
 }
 
 interface IAuthContextData {
@@ -72,9 +71,15 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
   });
 
   const signUp = useCallback(
-    async ({ name, password, email, social_number }: IRegisterData) => {
+    async ({
+      name,
+      password,
+      email,
+      socialNumber,
+      typeOfUser,
+    }: IRegisterData) => {
       await api
-        .post("/register", { name, password, email, social_number })
+        .post("/register", { name, password, email, socialNumber, typeOfUser })
         .then((response) => {
           localStorage.setItem(
             "@capstone:accessToken",

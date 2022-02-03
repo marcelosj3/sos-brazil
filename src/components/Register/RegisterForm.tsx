@@ -1,30 +1,32 @@
 import { useState } from "react";
-import { Grid, Heading, Text, VStack, Button } from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
+import {
+  Grid,
+  Heading,
+  Text,
+  VStack,
+  Button,
+  RadioGroup,
+} from "@chakra-ui/react";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
+import { useAuth } from "../../contexts/AuthContext";
+
+import { RadioCustom } from "../RadioCustom";
 import { CpfForm } from "./CpfForm";
 import { CnpjForm } from "./CnpjForm";
-import { RadioGroup } from "./RadioGroup";
-import { useAuth } from "../../contexts/AuthContext";
+import { RegisterValidation } from "./Validation";
 
 interface IRegisterData {
   name: string;
   password: string;
   email: string;
-  social_number: string;
-  area?: string;
-  prefered_cause?: string;
+  socialNumber: string;
+  typeOfUser: string;
 }
 
-const registerSchema = yup.object().shape({
-  name: yup.string().required("Nome obrigatório"),
-  email: yup.string().required("Email obrigatório").email("Email inválido"),
-  password: yup.string().required("Senha obrigatória"),
-  social_number: yup.string().required("Campo obrigatório"),
-});
+const schema = RegisterValidation;
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -38,8 +40,9 @@ export const RegisterForm = () => {
     formState: { errors },
     register,
     handleSubmit,
+    control,
   } = useForm<IRegisterData>({
-    resolver: yupResolver(registerSchema),
+    resolver: yupResolver(schema),
   });
 
   const handleRegister = (data: IRegisterData) => {
@@ -47,54 +50,83 @@ export const RegisterForm = () => {
     signUp(data)
       .then((_) => {
         setLoading(false);
-        navigate("/donate");
+        navigate("/login");
       })
       .catch((_) => setLoading(false));
   };
 
   return (
-    <Grid
-      onSubmit={handleSubmit(handleRegister)}
-      as="form"
-      w={["100%", "100%", "40%", "40%"]}
-      padding="30px 15px"
-      border="3px solid"
-      borderColor="gray.100.100"
-      bg="gray.100.100"
-      color="gray.300.100"
-      mt={["4", "4", "0"]}
-    >
-      <Heading size="lg" textAlign="center" fontWeight="normal">
-        Seja bem vindo!
-      </Heading>
-      <VStack spacing="5" mt="6">
-        <Text>Eu sou...</Text>
-        <RadioGroup
-          options={["CPF", "CNPJ"]}
-          name="CPF"
-          onChange={setTypeOfUser}
-        />
-        {typeOfUser === "CPF" ? (
-          <CpfForm register={register} errors={errors} />
-        ) : null}
-        {typeOfUser === "CNPJ" ? (
-          <CnpjForm register={register} errors={errors} />
-        ) : null}
-        <Button
-          isLoading={loading}
-          bg="primary.350"
-          w="100%"
+    <Controller
+      control={control}
+      name="typeOfUser"
+      render={({ field: { onBlur, onChange, ref } }) => (
+        <Grid
+          onSubmit={handleSubmit(handleRegister)}
+          as="form"
+          w={["100%", "100%", "40%", "40%"]}
+          padding="30px 15px"
+          bg="transparent"
           color="gray.300.100"
-          h="60px"
-          borderRadius="8px"
-          _hover={{
-            background: "primary.300",
-          }}
-          type="submit"
+          mt={["4", "4", "0"]}
         >
-          Cadastrar
-        </Button>
-      </VStack>
-    </Grid>
+          <Heading size="lg" textAlign="center" fontWeight="normal">
+            Seja bem vindo!
+          </Heading>
+          <VStack spacing="5" mt="6">
+            <Text>Eu sou...</Text>
+            <RadioGroup
+              name="value"
+              gap="8px"
+              display="flex"
+              widht="100%"
+              gridTemplateColumns={[
+                "repeat(2, 150px)",
+                "repeat(2, 150px)",
+                "repeat(4, 150px)",
+              ]}
+              justifyItems="center"
+              alignItems="center"
+            >
+              <RadioCustom
+                key="CPF"
+                onBlur={onBlur}
+                onChange={onChange}
+                label="Pessoa Física"
+                value="CPF"
+                onClick={() => setTypeOfUser("CPF")}
+              />
+              <RadioCustom
+                key="CNPJ"
+                onBlur={onBlur}
+                onChange={onChange}
+                label="Pessoa Jurídica"
+                value="CNPJ"
+                onClick={() => setTypeOfUser("CNPJ")}
+              />
+            </RadioGroup>
+            {typeOfUser === "CPF" ? (
+              <CpfForm register={register} errors={errors} />
+            ) : null}
+            {typeOfUser === "CNPJ" ? (
+              <CnpjForm register={register} errors={errors} />
+            ) : null}
+            <Button
+              isLoading={loading}
+              bg="primary.350"
+              w="100%"
+              color="gray.300.100"
+              h="60px"
+              borderRadius="8px"
+              _hover={{
+                background: "primary.300",
+              }}
+              type="submit"
+            >
+              Cadastrar
+            </Button>
+          </VStack>
+        </Grid>
+      )}
+    />
   );
 };

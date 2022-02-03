@@ -1,17 +1,11 @@
-import {
-  Button,
-  Flex,
-  Image,
-  useMediaQuery,
-  Link,
-  Box,
-} from "@chakra-ui/react";
+import { Button, Flex, Image, useMediaQuery, Link } from "@chakra-ui/react";
 import { Link as ReachLink, useNavigate } from "react-router-dom";
+
+import { useAuth } from "../../contexts/AuthContext";
 
 import { MenuButton } from "../MenuButton";
 
 import Logo from "../../assets/logo-sos-Brasil.svg";
-import { useAuth } from "../../contexts/AuthContext";
 
 export const Header = () => {
   const [MediaQuery480] = useMediaQuery("(min-width: 480px)");

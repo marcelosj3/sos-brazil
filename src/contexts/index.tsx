@@ -5,6 +5,7 @@ import { AuthProvider } from "./AuthContext";
 import { NewsProvider } from "./NewsContext";
 import { UserProvider } from "./UserContext";
 import { DonProvider } from "./DonationContext";
+import { PartnersProvider } from "./PartnersContext";
 
 import { theme } from "../styles/theme";
 
@@ -16,9 +17,11 @@ export const AppProvider = ({ children }: IAppProviderProps) => (
   <AuthProvider>
     <NewsProvider>
       <DonProvider>
-        <ChakraProvider theme={theme}>
-          <UserProvider>{children}</UserProvider>
-        </ChakraProvider>
+        <PartnersProvider>
+          <ChakraProvider theme={theme}>
+            <UserProvider>{children}</UserProvider>
+          </ChakraProvider>
+        </PartnersProvider>
       </DonProvider>
     </NewsProvider>
   </AuthProvider>
