@@ -12,7 +12,7 @@ export const UserDonations = () => {
   const user = (id && id) || "";
 
   const myDonations = donations.filter(
-    (donation) => donation.userId !== Number(user)
+    (donation) => donation.userId === Number(user)
   );
 
   useEffect(() => {
@@ -34,13 +34,13 @@ export const UserDonations = () => {
       padding={"35px"}
       overflowY={["scroll", "scroll"]}
       css={{
-        '&::-webkit-scrollbar': {
+        "&::-webkit-scrollbar": {
           width: "4px",
         },
-        '&::-webkit-scrollbar-track': {
+        "&::-webkit-scrollbar-track": {
           width: "6px",
         },
-        '&::-webkit-scrollbar-thumb': {
+        "&::-webkit-scrollbar-thumb": {
           background: "transparent",
           borderRadius: "24px",
         },
@@ -61,24 +61,18 @@ export const UserDonations = () => {
             borderRadius="8px"
             padding="30px"
           >
-            <Text color="gray.250" fontSize={"xl"} >
+            <Text color="gray.250" fontSize={"xl"}>
               Eu contribuí com{" "}
             </Text>
             <Heading color="secondary.300" fontSize={"4xl"}>
-<<<<<<< HEAD
-              R${card.value}
-=======
-              {"R$"}{card.value}
->>>>>>> bcd12b5dc7a28efe4e4680b12393367ada69e60b
+              {"R$"}
+              {card.value}
             </Heading>
             <Text textAlign="center">
               {" "}
-              {card.partner && "Para a instituição"} 
+              {card.partner && "Para a instituição"}
             </Text>
-            <Text 
-              fontWeight={"bold"}
-              color="secondary.250"  
-            >
+            <Text fontWeight={"bold"} color="secondary.250">
               {card.partner}
             </Text>
           </Box>
