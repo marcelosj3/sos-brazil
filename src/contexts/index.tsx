@@ -3,6 +3,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import { AuthProvider } from "./AuthContext";
 import { NewsProvider } from "./NewsContext";
+import { UserProvider } from "./UserContext";
+import { DonProvider } from "./DonationContext";
 import { PartnersProvider } from "./PartnersContext";
 
 import { theme } from "../styles/theme";
@@ -13,10 +15,14 @@ interface IAppProviderProps {
 
 export const AppProvider = ({ children }: IAppProviderProps) => (
   <AuthProvider>
-    <PartnersProvider>
-      <NewsProvider>
-        <ChakraProvider theme={theme}>{children}</ChakraProvider>
-      </NewsProvider>
-    </PartnersProvider>
+    <NewsProvider>
+      <DonProvider>
+        <PartnersProvider>
+          <ChakraProvider theme={theme}>
+            <UserProvider>{children}</UserProvider>
+          </ChakraProvider>
+        </PartnersProvider>
+      </DonProvider>
+    </NewsProvider>
   </AuthProvider>
 );

@@ -16,7 +16,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { RadioCustom } from "../RadioCustom";
 import { CpfForm } from "./CpfForm";
 import { CnpjForm } from "./CnpjForm";
-import { RegisterValidation } from "./Validation";
+import { registerValidation } from "./Validation";
 
 interface IRegisterData {
   name: string;
@@ -26,7 +26,7 @@ interface IRegisterData {
   typeOfUser: string;
 }
 
-const schema = RegisterValidation;
+const schema = registerValidation;
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -63,11 +63,11 @@ export const RegisterForm = () => {
         <Grid
           onSubmit={handleSubmit(handleRegister)}
           as="form"
-          w={["100%", "100%", "40%", "40%"]}
+          w={["100%"]}
+          maxW={["300px", "400px"]}
           padding="30px 15px"
           bg="transparent"
           color="gray.300.100"
-          mt={["4", "4", "0"]}
         >
           <Heading size="lg" textAlign="center" fontWeight="normal">
             Seja bem vindo!
@@ -76,7 +76,7 @@ export const RegisterForm = () => {
             <Text>Eu sou...</Text>
             <RadioGroup
               name="value"
-              gap="8px"
+              gap="30px"
               display="flex"
               widht="100%"
               gridTemplateColumns={[
@@ -115,7 +115,7 @@ export const RegisterForm = () => {
               bg="primary.350"
               w="100%"
               color="gray.300.100"
-              h="60px"
+              h={["40px", "48px"]}
               borderRadius="8px"
               _hover={{
                 background: "primary.300",
@@ -123,6 +123,24 @@ export const RegisterForm = () => {
               type="submit"
             >
               Cadastrar
+            </Button>
+            <Text>Já possui cadastro?</Text>
+            <Button
+              isLoading={loading}
+              bg="transparent"
+              border="1px solid"
+              borderColor="secondary.300"
+              w="100%"
+              color="secondary.300"
+              h={["40px", "48px"]}
+              borderRadius="8px"
+              _hover={{
+                background: "secondary.250",
+                color: "gray.100.100",
+              }}
+              onClick={() => navigate("/login")}
+            >
+              Login
             </Button>
           </VStack>
         </Grid>
