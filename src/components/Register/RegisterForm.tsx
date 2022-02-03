@@ -16,7 +16,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { RadioCustom } from "../RadioCustom";
 import { CpfForm } from "./CpfForm";
 import { CnpjForm } from "./CnpjForm";
-import { RegisterValidation } from "./Validation";
+import { registerValidation } from "./Validation";
 
 interface IRegisterData {
   name: string;
@@ -26,7 +26,7 @@ interface IRegisterData {
   typeOfUser: string;
 }
 
-const schema = RegisterValidation;
+const schema = registerValidation;
 
 export const RegisterForm = () => {
   const navigate = useNavigate();

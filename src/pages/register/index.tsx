@@ -1,9 +1,9 @@
 import { Flex, Image } from "@chakra-ui/react";
 
 import { RegisterForm } from "../../components/Register/RegisterForm";
+import { Header } from "../../components/Header";
 
 import imageLogin from "../../assets/worldHand.svg";
-import { Header } from "../../components/Header";
 
 export const Register = () => {
   return (
