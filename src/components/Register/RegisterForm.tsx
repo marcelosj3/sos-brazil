@@ -10,6 +10,7 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -51,8 +52,28 @@ export const RegisterForm = () => {
       .then((_) => {
         setLoading(false);
         navigate("/login");
+        toast.success("Cadastro realizado com sucesso!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
-      .catch((_) => setLoading(false));
+      .catch((_) => {
+        setLoading(false);
+        toast.error("Erro ao se cadastrar", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
 
   return (

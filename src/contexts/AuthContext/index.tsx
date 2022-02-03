@@ -58,8 +58,8 @@ const useAuth = () => {
 
 const AuthProvider = ({ children }: IAuthProviderProps) => {
   const [data, setData] = useState<IDataState>(() => {
-    const accessToken = localStorage.getItem("@capstone:accessToken");
-    const user = localStorage.getItem("@capstone:user");
+    const accessToken = localStorage.getItem("@SOSBrasil:accessToken");
+    const user = localStorage.getItem("@SOSBrasil:user");
 
     if (accessToken && user) {
       const data = { accessToken, user: JSON.parse(user) };
@@ -82,11 +82,11 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
         .post("/register", { name, password, email, socialNumber, typeOfUser })
         .then((response) => {
           localStorage.setItem(
-            "@capstone:accessToken",
+            "@SOSBrasil:accessToken",
             response.data.accessToken
           );
           localStorage.setItem(
-            "@capstone:user",
+            "@SOSBrasil:user",
             JSON.stringify(response.data.user)
           );
         });
@@ -99,15 +99,15 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
 
     const { accessToken, user } = response.data;
 
-    localStorage.setItem("@capstone:accessToken", accessToken);
-    localStorage.setItem("@capstone:user", JSON.stringify(user));
+    localStorage.setItem("@SOSBrasil:accessToken", accessToken);
+    localStorage.setItem("@SOSBrasil:user", JSON.stringify(user));
 
     setData({ accessToken, user });
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem("@capstone:accessToken");
-    localStorage.removeItem("@capstone:user");
+    localStorage.removeItem("@SOSBrasil:accessToken");
+    localStorage.removeItem("@SOSBrasil:user");
 
     setData({} as IDataState);
   }, []);

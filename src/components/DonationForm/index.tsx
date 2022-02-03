@@ -48,8 +48,13 @@ export const DonationForm = () => {
   } = useForm<IDonationData>({ resolver: yupResolver(schema) });
 
   const onSubmit = (data: IDonationData) => {
-    console.log(data);
-    setData(data);
+    const isEmpty = Object.keys(data).length === 0;
+
+    if (!isEmpty) {
+      console.log(data);
+      setData(data);
+      onOpen();
+    }
   };
 
   return (
@@ -163,6 +168,7 @@ export const DonationForm = () => {
         />
 
         <Button
+          disabled={!!errors.value?.message || !!errors.partner?.message}
           isLoading={loading}
           w={["280px", "350px"]}
           bg="primary.350"
@@ -170,7 +176,6 @@ export const DonationForm = () => {
           type="submit"
           mt="32px"
           _focus={{}}
-          onClick={onOpen}
         >
           Enviar
         </Button>

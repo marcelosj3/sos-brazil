@@ -69,7 +69,7 @@ export const Header = () => {
 
         <Image src={Logo} alt="logo" w="50px" order={[-1, 0]} />
         {MediaQuery480 ? (
-          <Link as={ReachLink} to="#">
+          <Link as={ReachLink} to="/partners">
             Colaboradores
           </Link>
         ) : null}
@@ -86,6 +86,7 @@ export const Header = () => {
           color="white"
           bg="feedback.danger.regular"
           _hover={{ bg: "feedback.danger.light" }}
+          onClick={() => navigate("/donation")}
         >
           Doe Agora
         </Button>

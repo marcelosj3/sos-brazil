@@ -3,6 +3,7 @@ import { Grid, Heading, VStack, Button, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -36,9 +37,29 @@ export const LoginForm = () => {
     signIn(data)
       .then((_) => {
         setLoading(false);
-        navigate("/donate");
+        navigate("/");
+        toast.success("Login realizado com sucesso!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
-      .catch((_) => setLoading(false));
+      .catch((_) => {
+        setLoading(false);
+        toast.error("Erro ao realizar login!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
 
   return (

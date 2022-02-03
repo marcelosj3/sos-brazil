@@ -46,10 +46,10 @@ export const MenuButton = () => {
             <Link href="/#assistencia" _focus={{}}>
               Assistencias
             </Link>
-            <Link as={ReachLink} to="./Login" _focus={{}}>
+            <Link as={ReachLink} to="/partners" _focus={{}}>
               Colaboradores
             </Link>
-            <Link as={ReachLink} to="./Login" _focus={{}}>
+            <Link as={ReachLink} to="/" _focus={{}}>
               Sobre nós
             </Link>
           </Grid>
@@ -70,7 +70,7 @@ export const MenuButton = () => {
               </Text>
             </Grid>
           ) : (
-            <Link as={ReachLink} to="/Login" _focus={{}} mt="16px">
+            <Link as={ReachLink} to="/login" _focus={{}} mt="16px">
               Login
             </Link>
           )}

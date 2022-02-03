@@ -13,15 +13,23 @@ interface IDonationProviderProps {
 }
 
 interface IDonations {
-  value: number;
-  date: string;
-  userID: number;
+  value: string;
+  date: Date;
+  partner: string;
+  userId: number;
+}
+
+interface IData {
+  date: Date;
+  partner: string;
+  value: string;
 }
 
 interface IDonationsHere {
   type_of_contribution: string;
   partner: string;
   value: number;
+  date: Date;
   userId: number;
   id: number;
 }
@@ -55,16 +63,13 @@ const DonProvider = ({ children }: IDonationProviderProps) => {
   );
 
   const registerDonations = useCallback(
-    async ({ value, date }: IDonations, accessToken: string) => {
-      await api.post(
-        "/donate",
-        { value, date },
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
+    async (data: IData, accessToken: string) => {
+      await api.post("/donations", data, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+      });
     },
     []
   );

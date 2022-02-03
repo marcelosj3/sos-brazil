@@ -65,7 +65,11 @@ export const UserDonations = () => {
               Eu contribuí com{" "}
             </Text>
             <Heading color="secondary.300" fontSize={"4xl"}>
+<<<<<<< HEAD
+              R${card.value}
+=======
               {"R$"}{card.value}
+>>>>>>> bcd12b5dc7a28efe4e4680b12393367ada69e60b
             </Heading>
             <Text textAlign="center">
               {" "}
