@@ -1,8 +1,10 @@
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import backgroundImage from "../../../../assets/indigenous-brazilian-people-background.png";
 
 export const GeneralInfo = () => {
+  const navigate = useNavigate();
   return (
     <Flex
       h="100vh"
@@ -48,6 +50,7 @@ export const GeneralInfo = () => {
           marginBottom={["20px", "0"]}
           _hover={{ bg: "primary.300" }}
           _focus={{}}
+          onClick={() => navigate("/donation")}
         >
           Quero Ajudar
         </Button>

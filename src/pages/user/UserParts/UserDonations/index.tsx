@@ -48,7 +48,7 @@ export const UserDonations = () => {
               Eu contribuí com{" "}
             </Text>
             <Heading color="secondary.300" fontSize={"4xl"}>
-              R${card.value.toFixed(2).toString().replace(".", ",")}
+              R${card.value}
             </Heading>
             <Text>
               {" "}
