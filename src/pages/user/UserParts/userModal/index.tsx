@@ -53,76 +53,70 @@ export const UserModal = () => {
       onSubmit={handleSubmit(attDados)}
       w="100%"
       display={"flex"}
+      justifyContent="center"
       flexDirection={"column"}
       alignContent={"space-between"}
+      alignItems={"center"}
     >
-      <VStack spacing={8}>
+      <VStack spacing={8} w="100%">
         {" "}
         <Flex
           w="100%"
+          flexDirection={"column"}
           justifyContent={"space-evenly"}
-          alignItems={"center"}
+          alignItems={"flex-start"}
           flexWrap={"wrap"}
         >
-          <TagLabel flex="1 0 auto" color="feedback.success">
+          <TagLabel flex="1 0 auto" color="secondary.250">
             Nome
           </TagLabel>
           <Input
             type="text"
             {...register("name")}
-            maxW={"300px"}
+            maxW={"350px"}
             variant="flushed"
           />
         </Flex>
         <Flex
-          w="100%"
+          w="100%"         
+          flexDirection={"column"}
           justifyContent={"space-evenly"}
-          alignItems={"center"}
+          alignItems={"flex-start"}
           flexWrap={"wrap"}
+
         >
-          <TagLabel flex="1 0 auto" color="feedback.success">
+          <TagLabel flex="1 0 auto" color="secondary.250">
             Email
           </TagLabel>
           <Input
             variant="flushed"
             type="text"
             {...register("email")}
-            maxW={"300px"}
+            maxW={"350px"}
           />
         </Flex>
         <Flex
           w="100%"
+          flexDirection={"column"}
           justifyContent={"space-evenly"}
-          alignItems={"center"}
+          alignItems={"flex-start"}
           flexWrap={"wrap"}
         >
-          <TagLabel flex="1 0 auto" color="feedback.success">
-            Telefone
-          </TagLabel>
-          <Input
-            variant="flushed"
-            type="number"
-            {...register("social_number")}
-            maxW={"300px"}
-          />
-        </Flex>
-        <Flex
-          w="100%"
-          justifyContent={"space-evenly"}
-          alignItems={"center"}
-          flexWrap={"wrap"}
-        >
-          <TagLabel color="feedback.success" flex="1 0 auto">
+          <TagLabel color="secondary.250" flex="1 0 auto">
             Senha
           </TagLabel>
           <Input
             variant="flushed"
             type="password"
             {...register("password")}
-            maxW={"300px"}
+            maxW={"350px"}
           />
         </Flex>
-        <Button type="submit">enviar</Button>
+        <Button 
+        _focus={{}}
+        bg="primary.350"
+        w="100%"
+        type="submit">Enviar</Button>
       </VStack>
     </Box>
   );

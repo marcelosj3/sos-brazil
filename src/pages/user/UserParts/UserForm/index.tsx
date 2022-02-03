@@ -14,6 +14,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Heading
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
@@ -37,21 +38,36 @@ export const UserInfo = () => {
   return (
     <Flex
       w="100vw"
-      justifyContent={"space-evenly"}
+      justifyContent={"center"}
       alignContent={"center"}
       flexWrap={"wrap"}
     >
       <Grid>
-        <Box>
-          <Text> Nome : {userMan.name}</Text>
-          <Text> Email : {userMan.email}</Text>
-          <Text> Telefone : {userMan.social_number}</Text>
-        </Box>
-      </Grid>
-      <Grid>
+        <Box
+          w={["330px", "430px"]}
+          background="white"
+          display={"flex"}
+          justifyContent={"space-evenly"}
+          alignItems={"center"}
+          flexDirection={"column"}
+          boxShadow={"2xl"}
+          h="350px"
+          borderRadius="8px"
+          padding="30px"
+        >
+          <Heading  
+            display="flex"
+            textAlign="center" 
+            alignItems="center"
+            justifyContent="center"
+        >
+          <Text fontSize='2xl' color="secondary.300"> {userMan.name}</Text>
+        </Heading>
+          <Text color="gray.250">{userMan.email}</Text>
+          <Text color="gray.250">123.456.789-10{userMan.social_number}</Text>
         <Button
           _focus={{}}
-          bg="feedback.success"
+          bg="primary.350"
           size="lg"
           leftIcon={<FaRegEdit />}
           variant={"solid"}
@@ -59,15 +75,25 @@ export const UserInfo = () => {
         >
           Editar informações
         </Button>
+        </Box>
+      </Grid>
+      <Grid>
         <Modal onClose={onClose} size={"xl"} isOpen={isOpen}>
           <ModalOverlay />
           <ModalContent
-            bg="primary.200"
+            bg="white"
+            w={["350px", "450px"]}
             maxW={"450px"}
             minW={"300px"}
-            w="450px"
+            padding="30px"
+            marginTop="18vh"
           >
-            <ModalHeader>Editar Informações</ModalHeader>
+            <ModalHeader
+            display="flex"
+            justifyContent={"center"}
+            padding="20px"
+            color="gray.250"
+            >Editar Informações</ModalHeader>
             <ModalCloseButton _focus={{}} />
             <ModalBody>
               <UserModal />
