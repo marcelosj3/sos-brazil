@@ -3,29 +3,19 @@ import { FieldError, UseFormRegister } from "react-hook-form";
 
 import { Input } from "./Input";
 
-interface IDonations {
-  type_of_contribution: string;
-  value: number;
-  material: string;
-}
-
 interface IRegisterData {
   name: string;
   password: string;
   email: string;
-  social_number: string;
-  area?: string;
-  prefered_cause?: string;
-  specialty?: string;
-  donations?: Array<IDonations>;
-  volunteer?: string;
+  socialNumber: string;
+  typeOfUser: string;
 }
 interface ICpfFormProps {
   errors: {
     email?: FieldError | undefined;
     password?: FieldError | undefined;
     name?: FieldError | undefined;
-    social_number?: FieldError | undefined;
+    socialNumber?: FieldError | undefined;
   };
   register: UseFormRegister<IRegisterData>;
 }
@@ -42,10 +32,11 @@ export const CpfForm = ({ register, errors }: ICpfFormProps) => {
       />
       <Input
         placeholder="Digite seu CPF"
+        inputMask="999.999.999-99"
         label="CPF"
         type="text"
-        error={errors.social_number}
-        {...register("social_number")}
+        error={errors.socialNumber}
+        {...register("socialNumber")}
       />
       <Input
         placeholder="Digite seu email"
