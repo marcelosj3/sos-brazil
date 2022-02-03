@@ -15,10 +15,19 @@ interface IDonationProviderProps {
 interface IDonations {
   value: number;
   date: string;
+  userID: number;
+}
+
+interface IDonationsHere {
+  type_of_contribution: string;
+  partner: string;
+  value: number;
+  userId: number;
+  id: number;
 }
 
 interface IDonationsContextData {
-  donations: Array<IDonations>;
+  donations: Array<IDonationsHere>;
   registerDonations: (
     { value, date }: IDonations,
     accessToken: string
@@ -30,19 +39,19 @@ const DonationsContext = createContext<IDonationsContextData>(
   {} as IDonationsContextData
 );
 
-const useAuth = () => {
+const useDon = () => {
   const context = useContext(DonationsContext);
 
   if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider!");
+    throw new Error("useDon must be used within an DonProvider!");
   }
 
   return context;
 };
 
-const AuthProvider = ({ children }: IDonationProviderProps) => {
-  const [donations, setDonations] = useState<Array<IDonations>>(
-    [] as Array<IDonations>
+const DonProvider = ({ children }: IDonationProviderProps) => {
+  const [donations, setDonations] = useState<Array<IDonationsHere>>(
+    [] as Array<IDonationsHere>
   );
 
   const registerDonations = useCallback(
@@ -62,7 +71,7 @@ const AuthProvider = ({ children }: IDonationProviderProps) => {
 
   const getDonations = useCallback(async (accessToken: string) => {
     await api
-      .get("/donate", {
+      .get("/donations", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -73,7 +82,7 @@ const AuthProvider = ({ children }: IDonationProviderProps) => {
   return (
     <DonationsContext.Provider
       value={{
-        donations: donations,
+        donations,
         registerDonations,
         getDonations,
       }}
@@ -83,4 +92,4 @@ const AuthProvider = ({ children }: IDonationProviderProps) => {
   );
 };
 
-export { useAuth, AuthProvider };
+export { useDon, DonProvider };

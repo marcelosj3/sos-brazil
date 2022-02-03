@@ -1,6 +1,8 @@
 import { Button, Flex, Image, useMediaQuery, Link } from "@chakra-ui/react";
 import { Link as ReachLink, useNavigate } from "react-router-dom";
 
+import { useAuth } from "../../contexts/AuthContext";
+
 import { MenuButton } from "../MenuButton";
 
 import Logo from "../../assets/logo-sos-Brasil.svg";
@@ -8,6 +10,8 @@ import Logo from "../../assets/logo-sos-Brasil.svg";
 export const Header = () => {
   const [MediaQuery480] = useMediaQuery("(min-width: 480px)");
   const [MediaQuery560] = useMediaQuery("(min-width: 560px)");
+
+  const { accessToken, user, signOut } = useAuth();
 
   const navigate = useNavigate();
   return (
@@ -31,18 +35,27 @@ export const Header = () => {
         alignItems="center"
       >
         {MediaQuery480 ? (
-          <Button
-            onClick={() => navigate("/login")}
-            variant="outline"
-            color="gray.100.100"
-            _hover={{
-              color: "gray.300.100",
-              bg: "gray.100.100",
-              borderColor: "gray.100.100",
-            }}
-          >
-            Login
-          </Button>
+          accessToken ? (
+            <Flex w="100px" justifyContent={"space-around"}>
+              <Link as={ReachLink} to={`/user/${user.id}`}>
+                User
+              </Link>
+              <Link onClick={() => signOut()}>Sair</Link>
+            </Flex>
+          ) : (
+            <Button
+              onClick={() => navigate("/login")}
+              variant="outline"
+              color="gray.100.100"
+              _hover={{
+                color: "gray.300.100",
+                bg: "gray.100.100",
+                borderColor: "gray.100.100",
+              }}
+            >
+              Login
+            </Button>
+          )
         ) : (
           <MenuButton />
         )}
