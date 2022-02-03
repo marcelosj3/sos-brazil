@@ -62,6 +62,10 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     }
   }, [error, value]);
 
+  const inputMaskProps = inputMask
+    ? { as: InputMask, mask: inputMask, maskChar: null }
+    : {};
+
   return (
     <FormControl isInvalid={!!error}>
       {!!label && <FormLabel color="gray.400">{label}</FormLabel>}
@@ -73,9 +77,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
           </InputLeftElement>
         )}
         <ChakraInput
-          as={InputMask}
-          mask={inputMask}
-          maskChar={null}
+          {...inputMaskProps}
           id={name}
           name={name}
           onChangeCapture={(e) => setValue(e.currentTarget.value)}
