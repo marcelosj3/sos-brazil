@@ -115,7 +115,7 @@ export const RegisterForm = () => {
               bg="primary.350"
               w="100%"
               color="gray.300.100"
-              h="60px"
+              h={["40px", "48px"]}
               borderRadius="8px"
               _hover={{
                 background: "primary.300",
@@ -123,6 +123,24 @@ export const RegisterForm = () => {
               type="submit"
             >
               Cadastrar
+            </Button>
+            <Text>Já possui cadastro?</Text>
+            <Button
+              isLoading={loading}
+              bg="transparent"
+              border="1px solid"
+              borderColor="secondary.300"
+              w="100%"
+              color="secondary.300"
+              h={["40px", "48px"]}
+              borderRadius="8px"
+              _hover={{
+                background: "secondary.250",
+                color: "gray.100.100",
+              }}
+              onClick={() => navigate("/login")}
+            >
+              Login
             </Button>
           </VStack>
         </Grid>
