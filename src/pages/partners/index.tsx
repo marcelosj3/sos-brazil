@@ -7,7 +7,7 @@ import { usePartners } from "../../contexts/PartnersContext";
 import { Header } from "../../components/Header";
 import { PartnerCard } from "../../components/PartnerCard";
 
-interface PartnersDataState {
+interface IPartnersDataState {
   name: string;
   description: string;
   cnpj: string;
@@ -82,7 +82,7 @@ export const Partners = () => {
         </Flex>
       </VStack>
       <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-        {partners.map((partner: PartnersDataState) => (
+        {partners.map((partner: IPartnersDataState) => (
           <PartnerCard {...partner} />
         ))}
       </Flex>

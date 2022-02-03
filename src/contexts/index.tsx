@@ -3,9 +3,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import { AuthProvider } from "./AuthContext";
 import { NewsProvider } from "./NewsContext";
+import { PartnersProvider } from "./PartnersContext";
 
 import { theme } from "../styles/theme";
-import { PartnersProvider } from "./PartnersContext";
 
 interface IAppProviderProps {
   children: ReactNode;

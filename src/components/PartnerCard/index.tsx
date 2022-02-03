@@ -2,7 +2,7 @@ import { Flex, Heading, Button, Image, Text, Center } from "@chakra-ui/react";
 
 import { usePartners } from "../../contexts/PartnersContext";
 
-interface PartnersDataState {
+interface IPartnersDataState {
   name: string;
   description: string;
   cnpj: string;
@@ -13,7 +13,7 @@ interface PartnersDataState {
   id: number;
 }
 
-export const PartnerCard = (partner: PartnersDataState) => {
+export const PartnerCard = (partner: IPartnersDataState) => {
   return (
     <Flex
       w="300px"

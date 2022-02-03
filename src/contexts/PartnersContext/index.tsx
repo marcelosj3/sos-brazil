@@ -6,13 +6,14 @@ import {
   createContext,
   ReactNode,
 } from "react";
+
 import { api } from "../../services/api";
 
-interface PartnersProviderProps {
+interface IPartnersProviderProps {
   children: ReactNode;
 }
 
-interface PartnersDataState {
+interface IPartnersDataState {
   name: string;
   description: string;
   cnpj: string;
@@ -23,14 +24,14 @@ interface PartnersDataState {
   id: number;
 }
 
-interface PartnersContextData {
+interface IPartnersContextData {
   renderPartners: () => Promise<void>;
   partnersFiltered: (value: string) => void;
-  partners: PartnersDataState[];
+  partners: IPartnersDataState[];
 }
 
-const PartnersContext = createContext<PartnersContextData>(
-  {} as PartnersContextData
+const PartnersContext = createContext<IPartnersContextData>(
+  {} as IPartnersContextData
 );
 
 const usePartners = () => {
@@ -43,8 +44,8 @@ const usePartners = () => {
   return context;
 };
 
-const PartnersProvider = ({ children }: PartnersProviderProps) => {
-  const [partners, setPartners] = useState<PartnersDataState[]>([]);
+const PartnersProvider = ({ children }: IPartnersProviderProps) => {
+  const [partners, setPartners] = useState<IPartnersDataState[]>([]);
 
   const renderPartners = useCallback(async () => {
     await api
