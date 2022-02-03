@@ -13,7 +13,8 @@ interface IPartnersDataState {
   cnpj: string;
   cause: string;
   type: string;
-  logo: string;
+  logoWide: string;
+  logoSquare: string;
   site: string;
   id: number;
 }

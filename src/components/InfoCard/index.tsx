@@ -8,6 +8,7 @@ interface IInfoCard {
   newsUrl?: string;
   white?: boolean;
   news?: boolean;
+  objectContain?: boolean;
 }
 
 export const InfoCard = ({
@@ -18,6 +19,7 @@ export const InfoCard = ({
   newsUrl,
   white = false,
   news = false,
+  objectContain = false,
 }: IInfoCard) => {
   return (
     <Box
@@ -29,7 +31,7 @@ export const InfoCard = ({
       transform={isCentered ? "scale(1.1)" : ""}
       transition="all 0.3s"
     >
-      <Box>
+      <Box background="gray.100.100">
         <Image
           h={["160px", "256px"]}
           w="100%"
@@ -37,7 +39,7 @@ export const InfoCard = ({
           src={imageUrl}
           alt={title}
           transition="all 0.3s"
-          objectFit="cover"
+          objectFit={objectContain ? "contain" : "cover"}
           objectPosition="center"
         />
       </Box>

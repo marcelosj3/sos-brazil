@@ -8,7 +8,8 @@ interface IPartnersDataState {
   cnpj: string;
   cause: string;
   type: string;
-  logo: string;
+  logoWide: string;
+  logoSquare: string;
   site: string;
   id: number;
 }
@@ -27,7 +28,7 @@ export const PartnerCard = (partner: IPartnersDataState) => {
       borderRadius="5px"
       bg="white"
     >
-      <Image src={partner.logo} w="150px" h="100px" />
+      <Image src={partner.logoWide} w="150px" h="100px" />
       <Heading fontSize="md" as="h3">
         {partner.name}
       </Heading>
