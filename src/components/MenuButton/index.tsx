@@ -64,7 +64,7 @@ export const MenuButton = () => {
               <Text onClick={() => {}}>Logout</Text>
             </Grid>
           ) : (
-            <Link as={ReachLink} to="./Login" _focus={{}} mt="16px">
+            <Link as={ReachLink} to="/Login" _focus={{}} mt="16px">
               Login
             </Link>
           )}

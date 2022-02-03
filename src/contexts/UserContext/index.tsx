@@ -6,14 +6,14 @@ interface IUserProviderProps {
   children: ReactNode;
 }
 
-interface Idata {
+interface IData {
   name: string;
   email: string;
   social_number: string;
   password: string;
 }
 
-interface Iuser {
+interface IUser {
   email: string;
   password: string;
   name: string;
@@ -21,27 +21,27 @@ interface Iuser {
   id: number;
 }
 
-interface IdataUser {
-  userAtt: (id: string, acessToken: string, data: Idata) => void;
+interface IDataUser {
+  userAtt: (id: string, acessToken: string, data: IData) => void;
   userData: (id: string, acessToken: string) => void;
-  userMan: Iuser;
+  userMan: IUser;
 }
 
-const UserContext = createContext<IdataUser>({} as IdataUser);
+const UserContext = createContext<IDataUser>({} as IDataUser);
 
 const useUser = () => {
   const context = useContext(UserContext);
 
   if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider!");
+    throw new Error("useUser must be used within an AuthProvider!");
   }
 
   return context;
 };
 
 const UserProvider = ({ children }: IUserProviderProps) => {
-  const [userMan, setUserMan] = useState<Iuser>({} as Iuser);
-  const userAtt = (id: string, acessToken: string, data: Idata) => {
+  const [userMan, setUserMan] = useState<IUser>({} as IUser);
+  const userAtt = (id: string, acessToken: string, data: IData) => {
     api
       .patch(`/users/${id}`, data, {
         headers: { Authorization: `Bearer ${acessToken}` },

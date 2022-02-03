@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { AuthProvider } from "./AuthContext";
 import { NewsProvider } from "./NewsContext";
 import { UserProvider } from "./UserContext";
+import { DonProvider } from "./DonationContext";
 
 import { theme } from "../styles/theme";
 
@@ -15,7 +16,9 @@ export const AppProvider = ({ children }: IAppProviderProps) => (
   <AuthProvider>
     <NewsProvider>
       <UserProvider>
-        <ChakraProvider theme={theme}>{children}</ChakraProvider>
+        <DonProvider>
+          <ChakraProvider theme={theme}>{children}</ChakraProvider>
+        </DonProvider>
       </UserProvider>
     </NewsProvider>
   </AuthProvider>

@@ -30,7 +30,7 @@ const DonationsContext = createContext<IDonationsContextData>(
   {} as IDonationsContextData
 );
 
-const useAuth = () => {
+const useDon = () => {
   const context = useContext(DonationsContext);
 
   if (!context) {
@@ -40,7 +40,7 @@ const useAuth = () => {
   return context;
 };
 
-const AuthProvider = ({ children }: IDonationProviderProps) => {
+const DonProvider = ({ children }: IDonationProviderProps) => {
   const [donations, setDonations] = useState<Array<IDonations>>(
     [] as Array<IDonations>
   );
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }: IDonationProviderProps) => {
 
   const getDonations = useCallback(async (accessToken: string) => {
     await api
-      .get("/donate", {
+      .get("/donations", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -83,4 +83,4 @@ const AuthProvider = ({ children }: IDonationProviderProps) => {
   );
 };
 
-export { useAuth, AuthProvider };
+export { useDon, DonProvider };
