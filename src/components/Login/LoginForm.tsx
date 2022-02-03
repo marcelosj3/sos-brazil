@@ -2,22 +2,19 @@ import { useState } from "react";
 import { Grid, Heading, VStack, Button, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../contexts/AuthContext";
 
 import { Input } from "../Register/Input";
+import { LoginValidation } from "./Validation";
 
 interface ILoginData {
   email: string;
   password: string;
 }
 
-const LoginSchema = yup.object().shape({
-  email: yup.string().required("Email obrigatório").email("Email inválido"),
-  password: yup.string().required("Senha obrigatória"),
-});
+const schema = LoginValidation;
 
 export const LoginForm = () => {
   const { signIn } = useAuth();
@@ -31,7 +28,7 @@ export const LoginForm = () => {
     register,
     handleSubmit,
   } = useForm<ILoginData>({
-    resolver: yupResolver(LoginSchema),
+    resolver: yupResolver(schema),
   });
 
   const handleLogin = (data: ILoginData) => {
@@ -51,9 +48,7 @@ export const LoginForm = () => {
       w={["100%"]}
       maxW={["300px", "400px"]}
       padding="30px 15px"
-      border="3px solid"
-      borderColor="gray.100.100"
-      bg="white"
+      bg="transparent"
       color="gray.300.100"
     >
       <Heading
@@ -64,17 +59,15 @@ export const LoginForm = () => {
       >
         Estou pronte para mudar o mundo!
       </Heading>
-      <VStack spacing="5" mt="6">
+      <VStack spacing="4" mt="6">
         <Input
           placeholder="Digite seu email"
-          label="Email"
           type="text"
           error={errors.email}
           {...register("email")}
         />
         <Input
           placeholder="Digite sua senha"
-          label="Senha"
           type="password"
           error={errors.password}
           {...register("password")}
@@ -109,7 +102,7 @@ export const LoginForm = () => {
             background: "secondary.250",
             color: "gray.100.100",
           }}
-          type="submit"
+          onClick={() => navigate("/register")}
         >
           Cadastrar
         </Button>
