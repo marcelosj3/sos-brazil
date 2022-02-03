@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { Box, Flex, Heading, Text, Center, HStack } from "@chakra-ui/react";
 
 import { Header } from "../../components/Header";

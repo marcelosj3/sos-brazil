@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-
 import { Box, Grid, Heading, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
