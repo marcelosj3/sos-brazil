@@ -1,20 +1,21 @@
 import { Flex, Image } from "@chakra-ui/react";
 
 import { RegisterForm } from "../../components/Register/RegisterForm";
+import { Header } from "../../components/Header";
 
 import imageLogin from "../../assets/worldHand.svg";
 
 export const Register = () => {
   return (
     <Flex
-      padding={["10px 15px", "10px 15px", "0px", "0px"]}
       alignItems="center"
       justifyContent="center"
       color="gray.100.100"
-      mt="20px"
+      pt="120px"
     >
+      <Header />
       <Flex
-        w={["100%", "100%", "90%", "65%"]}
+        w={["100%"]}
         justifyContent="center"
         flexDirection={["column", "column", "row", "row"]}
         alignItems="center"
@@ -23,7 +24,9 @@ export const Register = () => {
         <Image
           src={imageLogin}
           alt="mundo na mão"
-          boxSize={["120px", "120px", "500px", "500px"]}
+          w={["0px", "0px", "200px", "400px"]}
+          display={["none", "none", "none", "block"]}
+          mr={["0px", "0px", "20px", "100px"]}
         />
       </Flex>
     </Flex>

@@ -5,6 +5,8 @@ import { Register } from "../pages/register";
 import { Login } from "../pages/login";
 import { User } from "../pages/user";
 import { Partners } from "../pages/partners";
+import { DonationPage } from "../pages/donation";
+import { Donachos } from "../pages/donachos";
 import { PrivateRoute } from "./PrivateRoute";
 
 export const Routes = () => (
@@ -21,5 +23,7 @@ export const Routes = () => (
       }
     />
     <Route path="/partners" element={<Partners />} />
+    <Route path="/donation" element={<DonationPage />} />
+    <Route path="/donachos" element={<Donachos />} />
   </RoutesSwitch>
 );
