@@ -34,10 +34,11 @@ export const GeneralInfo = () => {
         maxW={["200px", "350px", "600px"]}
         textAlign="center"
       >
-        Asdflkjaertvlkjasntvkjn (sits on keyboard) leave hair on owner's clothes
-        and stare at guinea pigs or yowling nonstop the whole night do i like
-        standing on litter cuz i sits when i have spaces, my cat buddies have no
-        litter i live in luxury cat life.
+        <b>
+          O SOS Brasil é uma plataforma que conecta quem precisa de ajuda com
+          quem quer ajudar. Escolha uma instituição e faça sua doação agora
+          mesmo!
+        </b>
       </Text>
       <Flex flexDirection={["column", "row"]}>
         <Button

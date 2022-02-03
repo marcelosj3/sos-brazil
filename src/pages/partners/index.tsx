@@ -76,7 +76,7 @@ export const Partners = () => {
                 onClick={() => partnersFiltered("Assessoria Jurídica")}
                 _hover={{ color: "secondary.300" }}
               >
-                Assessoria Jurídica
+                Assistência Jurídica
               </Button>
             </HStack>
           </Flex>
