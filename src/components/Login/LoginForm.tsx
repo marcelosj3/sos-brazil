@@ -15,8 +15,11 @@ interface ILoginData {
 }
 
 const LoginSchema = yup.object().shape({
-  email: yup.string().required("Email obrigatório").email("Email inválido"),
-  password: yup.string().required("Senha obrigatória"),
+  email: yup
+    .string()
+    .required("Por favor, digite seu email")
+    .email("Por favor, digite um email válido"),
+  password: yup.string().required("Por favor, digite sua senha"),
 });
 
 export const LoginForm = () => {
@@ -51,9 +54,7 @@ export const LoginForm = () => {
       w={["100%"]}
       maxW={["300px", "400px"]}
       padding="30px 15px"
-      border="3px solid"
-      borderColor="gray.100.100"
-      bg="white"
+      bg="transparent"
       color="gray.300.100"
     >
       <Heading
@@ -64,17 +65,15 @@ export const LoginForm = () => {
       >
         Estou pronte para mudar o mundo!
       </Heading>
-      <VStack spacing="5" mt="6">
+      <VStack spacing="4" mt="6">
         <Input
           placeholder="Digite seu email"
-          label="Email"
           type="text"
           error={errors.email}
           {...register("email")}
         />
         <Input
           placeholder="Digite sua senha"
-          label="Senha"
           type="password"
           error={errors.password}
           {...register("password")}
@@ -109,7 +108,7 @@ export const LoginForm = () => {
             background: "secondary.250",
             color: "gray.100.100",
           }}
-          type="submit"
+          onClick={() => navigate("/register")}
         >
           Cadastrar
         </Button>

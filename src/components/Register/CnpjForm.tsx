@@ -3,22 +3,12 @@ import { FieldError, UseFormRegister } from "react-hook-form";
 
 import { Input } from "./Input";
 
-interface IDonations {
-  type_of_contribution: string;
-  value: number;
-  material: string;
-}
-
 interface IRegisterData {
   name: string;
   password: string;
   email: string;
-  social_number: string;
-  area?: string;
-  prefered_cause?: string;
-  specialty?: string;
-  donations?: Array<IDonations>;
-  volunteer?: string;
+  socialNumber: string;
+  typeOfUser: string;
 }
 
 interface ICnpjFormProps {
@@ -47,7 +37,7 @@ export const CnpjForm = ({ register, errors }: ICnpjFormProps) => {
         label="CNPJ"
         type="text"
         error={errors.social_number}
-        {...register("social_number")}
+        {...register("socialNumber")}
       />
       <Input
         placeholder="Digite o email"

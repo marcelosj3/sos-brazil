@@ -13,12 +13,8 @@ interface IRegisterData {
   name: string;
   password: string;
   email: string;
-  social_number: string;
-  area?: string;
-  prefered_cause?: string;
-  specialty?: string;
-  donations?: Array<IDonations>;
-  volunteer?: string;
+  socialNumber: string;
+  typeOfUser: string;
 }
 interface ICpfFormProps {
   errors: {
@@ -45,7 +41,7 @@ export const CpfForm = ({ register, errors }: ICpfFormProps) => {
         label="CPF"
         type="text"
         error={errors.social_number}
-        {...register("social_number")}
+        {...register("socialNumber")}
       />
       <Input
         placeholder="Digite seu email"
