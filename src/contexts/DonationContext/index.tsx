@@ -43,7 +43,7 @@ const useDon = () => {
   const context = useContext(DonationsContext);
 
   if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider!");
+    throw new Error("useDon must be used within an DonProvider!");
   }
 
   return context;
