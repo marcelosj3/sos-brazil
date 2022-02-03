@@ -36,6 +36,7 @@ export const CnpjForm = ({ register, errors }: ICnpjFormProps) => {
         label="CNPJ"
         type="text"
         error={errors.socialNumber}
+        inputMask="99.999.999/9999-99"
         {...register("socialNumber")}
       />
       <Input
