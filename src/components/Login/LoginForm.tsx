@@ -2,25 +2,19 @@ import { useState } from "react";
 import { Grid, Heading, VStack, Button, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../contexts/AuthContext";
 
 import { Input } from "../Register/Input";
+import { LoginValidation } from "./Validation";
 
 interface ILoginData {
   email: string;
   password: string;
 }
 
-const LoginSchema = yup.object().shape({
-  email: yup
-    .string()
-    .required("Por favor, digite seu email")
-    .email("Por favor, digite um email válido"),
-  password: yup.string().required("Por favor, digite sua senha"),
-});
+const schema = LoginValidation;
 
 export const LoginForm = () => {
   const { signIn } = useAuth();
@@ -34,7 +28,7 @@ export const LoginForm = () => {
     register,
     handleSubmit,
   } = useForm<ILoginData>({
-    resolver: yupResolver(LoginSchema),
+    resolver: yupResolver(schema),
   });
 
   const handleLogin = (data: ILoginData) => {

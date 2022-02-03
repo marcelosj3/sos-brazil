@@ -9,13 +9,14 @@ import {
 } from "@chakra-ui/react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
+import { useAuth } from "../../contexts/AuthContext";
+
+import { RadioCustom } from "../RadioCustom";
 import { CpfForm } from "./CpfForm";
 import { CnpjForm } from "./CnpjForm";
-import { useAuth } from "../../contexts/AuthContext";
-import { RadioCustom } from "../RadioCustom";
+import { RegisterValidation } from "./Validation";
 
 interface IRegisterData {
   name: string;
@@ -25,12 +26,7 @@ interface IRegisterData {
   typeOfUser: string;
 }
 
-const registerSchema = yup.object().shape({
-  name: yup.string().required("Nome obrigatório"),
-  email: yup.string().required("Email obrigatório").email("Email inválido"),
-  password: yup.string().required("Senha obrigatória"),
-  socialNumber: yup.string().required("Campo obrigatório"),
-});
+const schema = RegisterValidation;
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -46,7 +42,7 @@ export const RegisterForm = () => {
     handleSubmit,
     control,
   } = useForm<IRegisterData>({
-    resolver: yupResolver(registerSchema),
+    resolver: yupResolver(schema),
   });
 
   const handleRegister = (data: IRegisterData) => {

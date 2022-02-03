@@ -16,8 +16,7 @@ interface ICnpjFormProps {
     email?: FieldError | undefined;
     password?: FieldError | undefined;
     name?: FieldError | undefined;
-    social_number?: FieldError | undefined;
-    area?: FieldError | undefined;
+    socialNumber?: FieldError | undefined;
   };
   register: UseFormRegister<IRegisterData>;
 }
@@ -36,7 +35,7 @@ export const CnpjForm = ({ register, errors }: ICnpjFormProps) => {
         placeholder="Digite seu CNPJ"
         label="CNPJ"
         type="text"
-        error={errors.social_number}
+        error={errors.socialNumber}
         {...register("socialNumber")}
       />
       <Input
