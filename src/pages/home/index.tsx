@@ -4,6 +4,7 @@ import { Header } from "../../components/Header";
 import { GeneralInfo } from "./Sections/GeneralInfo";
 import { NewsContainer } from "./Sections/NewsContainer";
 import { OfferedAssistance } from "./Sections/OfferedAssistance";
+import { OurPartnersContainer } from "./Sections/PartnersCarousel";
 
 export const Home = () => {
   return (
@@ -12,6 +13,7 @@ export const Home = () => {
       <GeneralInfo />
       <OfferedAssistance />
       <NewsContainer />
+      <OurPartnersContainer />
     </Box>
   );
 };
