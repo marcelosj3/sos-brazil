@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import { Carousel } from "3d-react-carousal";
 
+import { usePartners } from "../../../../contexts/PartnersContext";
+
 import { InfoCard } from "../../../../components/InfoCard";
 import { SkeletonInfoCard } from "../../../../components/SkeletonInfoCard";
 
@@ -10,21 +12,28 @@ import "./style.css";
 export const OurPartnersContainer = () => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {}, []);
+  const { partners, renderPartners } = usePartners();
+
+  useEffect(() => {
+    renderPartners()
+      .then((_) => setLoading(false))
+      .catch((_) => setLoading(false));
+  }, [renderPartners]);
 
   const skeletonQuantity = Array.from(Array(3).keys());
 
   let slides = loading
     ? skeletonQuantity.map((_, index) => <SkeletonInfoCard key={index} />)
-    : {};
-  // : partners.map(({  description, logo, name }, index) => (
-  //     <InfoCard
-  //       key={index}
-  //       title={name}
-  //       description={description}
-  //       imageUrl={logo}
-  //     />
-  //   ));
+    : partners.map(({ description, logoWide, name }, index) => (
+        <InfoCard
+          white
+          key={index}
+          title={name}
+          description={description}
+          imageUrl={logoWide}
+          objectContain
+        />
+      ));
 
   return (
     <Flex
