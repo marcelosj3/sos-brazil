@@ -16,6 +16,7 @@ export const RadioCard = ({ children, ...rest }: IRadioCardProps) => {
       <input {...input} />
       <Box
         {...checkbox}
+        onClick={() => console.log("oi")}
         cursor="pointer"
         borderWidth="1px"
         borderRadius="md"
@@ -25,9 +26,7 @@ export const RadioCard = ({ children, ...rest }: IRadioCardProps) => {
           color: "gray.300.100",
           borderColor: "primary.350",
         }}
-        _focus={{
-          boxShadow: "outline",
-        }}
+        _focus={{}}
         px={5}
         py={3}
       >
