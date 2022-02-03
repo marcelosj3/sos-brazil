@@ -32,6 +32,7 @@ export const CpfForm = ({ register, errors }: ICpfFormProps) => {
       />
       <Input
         placeholder="Digite seu CPF"
+        inputMask="999.999.999-99"
         label="CPF"
         type="text"
         error={errors.socialNumber}

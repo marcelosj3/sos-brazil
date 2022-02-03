@@ -16,12 +16,14 @@ import {
 } from "@chakra-ui/react";
 import { FieldError } from "react-hook-form";
 import { IconType } from "react-icons/lib";
+import InputMask from "react-input-mask";
 
 interface InputProps extends ChakraInputProps {
   name: string;
   label?: string;
   error?: FieldError | null;
   icon?: IconType;
+  inputMask?: string;
 }
 
 type inputVariationOptions = {
@@ -36,7 +38,7 @@ const inputVariation: inputVariationOptions = {
 };
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { name, error = null, icon: Icon, label, ...rest },
+  { name, error = null, icon: Icon, label, inputMask, ...rest },
   ref
 ) => {
   const [value, setValue] = useState("");
@@ -71,6 +73,9 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
           </InputLeftElement>
         )}
         <ChakraInput
+          as={InputMask}
+          mask={inputMask}
+          maskChar={null}
           id={name}
           name={name}
           onChangeCapture={(e) => setValue(e.currentTarget.value)}
