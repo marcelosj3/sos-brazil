@@ -63,6 +63,7 @@ export const GeneralInfo = () => {
           marginLeft={["0", "40px", "80px"]}
           _hover={{ bg: "secondary.250" }}
           _focus={{}}
+          onClick={() => navigate("/help")}
         >
           Preciso de ajuda
         </Button>
