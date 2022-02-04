@@ -20,7 +20,11 @@ export const DonationPage = () => {
         flexDirection="column"
         alignItems="center"
       >
-        <Heading fontSize={["3xl", "4xl"]} mb={["28px", "64px"]}>
+        <Heading
+          fontSize={["3xl", "4xl"]}
+          mb={["28px", "64px"]}
+          color="gray.300.100"
+        >
           Quero doar
         </Heading>
         <DonationForm />
