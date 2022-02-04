@@ -7,9 +7,11 @@ import { useNews } from "../../../../contexts/NewsContext";
 import { SkeletonInfoCard } from "../../../../components/SkeletonInfoCard";
 
 import "./style.css";
+import { newsContent } from "./newsContent";
 
 export const NewsContainer = () => {
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line
   const { loadNews, newsData } = useNews();
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export const NewsContainer = () => {
 
   let slides = loading
     ? skeletonQuantity.map((_, index) => <SkeletonInfoCard key={index} />)
-    : newsData.map(({ url, urlToImage, title, description }, index) => (
+    : newsContent.map(({ url, urlToImage, title, description }, index) => (
         <InfoCard
           key={index}
           title={title}

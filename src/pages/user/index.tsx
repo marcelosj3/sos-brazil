@@ -25,10 +25,10 @@ export const User = () => {
   return (
     <Flex w="100vw" h="100vh" flexDirection="column" alignContent="center">
       <Header />
-      <Heading  
+      <Heading
         display="flex"
-        pt="85px" 
-        textAlign="center" 
+        pt="85px"
+        textAlign="center"
         alignItems="center"
         h={["25vh"]}
         justifyContent="center"
@@ -36,13 +36,12 @@ export const User = () => {
         <Text
           fontSize={["3xl", "3xl", "4xl", "4xl"]}
           fontWeight="medium"
-        >Meu perfil</Text>
-      </Heading>
-      <Box 
-        display="flex"
-        h={["10vh", "15vh"]}
-        justifyContent="center"
+          color="gray.300.100"
         >
+          Meu perfil
+        </Text>
+      </Heading>
+      <Box display="flex" h={["10vh", "15vh"]} justifyContent="center">
         <Center>
           <HStack spacing="8" color="gray.600" fontSize={["sm", "lg"]}>
             {" "}

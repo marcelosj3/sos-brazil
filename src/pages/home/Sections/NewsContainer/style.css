@@ -1,7 +1,11 @@
-.react-3d-carousel
-  .slider-container
-  .slider-content
-  .slider-single
-  .slider-single-content {
+div
+  > div
+  > div
+  > div
+  > div.react-3d-carousel
+  div.slider-container
+  div.slider-content
+  div.slider-single
+  div.slider-single-content {
   box-shadow: none;
 }

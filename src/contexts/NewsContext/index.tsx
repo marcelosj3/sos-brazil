@@ -54,7 +54,7 @@ const NewsProvider = ({ children }: INewsProviderProps) => {
       "brasil barragem",
     ];
 
-    const apiKey = "1669ca52172c438ba793576de9565f61";
+    const apiKey = "a41cf1600a3c4077a98d0a12d0d863a3";
 
     const randomNews =
       searchQuery[Math.floor(Math.random() * searchQuery.length)];

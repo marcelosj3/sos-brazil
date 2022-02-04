@@ -23,7 +23,8 @@ interface ICnpjFormProps {
 
 export const CnpjForm = ({ register, errors }: ICnpjFormProps) => {
   return (
-    <VStack>
+    <VStack
+      w="100%">
       <Input
         placeholder="Digite o nome da sua empresa"
         label="Nome da empresa"

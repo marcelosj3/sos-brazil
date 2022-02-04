@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { useAuth } from "../../../../contexts/AuthContext";
 import { useDon } from "../../../../contexts/DonationContext";
 
+import { currencyFormatter } from "../../../../utils/currencyFormatter";
+
 export const UserDonations = () => {
   const { accessToken } = useAuth();
   const { donations, getDonations } = useDon();
@@ -17,7 +19,7 @@ export const UserDonations = () => {
 
   useEffect(() => {
     getDonations(accessToken);
-  }, []);
+  }, [accessToken, getDonations]);
 
   return (
     <Grid
@@ -27,11 +29,11 @@ export const UserDonations = () => {
       h="60vh"
       m="0 auto"
       justifyContent="center"
-      alignItems="center"
-      flexWrap={"wrap"}
+      alignItems="start"
+      flexWrap="wrap"
       gridTemplateColumns="repeat(auto-fill,300px)"
       gap="25px"
-      padding={"35px"}
+      padding="35px"
       overflowY={["scroll", "scroll"]}
       css={{
         "&::-webkit-scrollbar": {
@@ -51,28 +53,30 @@ export const UserDonations = () => {
           <Box
             key={index}
             w="300px"
-            background="white"
-            display={"flex"}
-            justifyContent={"space-evenly"}
-            alignItems={"center"}
-            flexDirection={"column"}
-            boxShadow={"2xl"}
+            background="gray.100.100"
+            display="flex"
+            justifyContent="space-evenly"
+            alignItems="center"
+            flexDirection="column"
+            boxShadow="2xl"
             h="300px"
             borderRadius="8px"
             padding="30px"
+            color="gray.250"
           >
-            <Text color="gray.250" fontSize={"xl"}>
-              Eu contribuí com{" "}
-            </Text>
-            <Heading color="secondary.300" fontSize={"4xl"}>
-              {"R$"}
-              {card.value}
+            <Text fontSize="xl">Eu contribuí com </Text>
+            <Heading color="secondary.300" fontSize="4xl">
+              {currencyFormatter.format(card.value)}
             </Heading>
             <Text textAlign="center">
-              {" "}
               {card.partner && "Para a instituição"}
             </Text>
-            <Text fontWeight={"bold"} color="secondary.250">
+            <Text
+              fontWeight="bold"
+              color="secondary.250"
+              fontSize="xl"
+              textAlign="center"
+            >
               {card.partner}
             </Text>
           </Box>

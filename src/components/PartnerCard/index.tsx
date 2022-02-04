@@ -1,6 +1,5 @@
-import { Flex, Heading, Button, Image, Text, Center } from "@chakra-ui/react";
-
-import { usePartners } from "../../contexts/PartnersContext";
+import { Flex, Heading, Button, Image, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router";
 
 interface IPartnersDataState {
   name: string;
@@ -15,18 +14,20 @@ interface IPartnersDataState {
 }
 
 export const PartnerCard = (partner: IPartnersDataState) => {
+  const navigate = useNavigate();
+
   return (
     <Flex
       w="300px"
       h="365px"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="space-between"
       p="20px"
-      border="1px solid black"
       m="5px"
       borderRadius="5px"
-      bg="white"
+      bg="gray.100.100"
+      boxShadow="lg"
     >
       <Image src={partner.logoWide} w="150px" h="100px" />
       <Heading fontSize="md" as="h3">
@@ -66,6 +67,7 @@ export const PartnerCard = (partner: IPartnersDataState) => {
         _hover={{ bg: "secondary.250" }}
         _focus={{}}
         mt="10px"
+        onClick={() => navigate("/donation", { state: partner.name })}
       >
         DOAR
       </Button>

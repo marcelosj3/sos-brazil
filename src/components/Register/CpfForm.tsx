@@ -22,7 +22,7 @@ interface ICpfFormProps {
 
 export const CpfForm = ({ register, errors }: ICpfFormProps) => {
   return (
-    <VStack>
+    <VStack w="100%">
       <Input
         placeholder="Digite seu nome"
         label="Nome"
