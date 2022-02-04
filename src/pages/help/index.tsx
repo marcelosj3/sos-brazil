@@ -41,12 +41,19 @@ export const Help = () => {
     <Flex flexDirection={"column"}>
       <Header />
       <Box textAlign={"center"} pt="100px" w="100vw">
-        {" "}
-        <Heading>Quem pode me ajudar</Heading>
+        <Heading
+          as="h3"
+          fontSize={["3xl", "3xl", "4xl", "4xl"]}
+          fontWeight="medium"
+          color="gray.300.100"
+        >
+          Quem pode me ajudar?
+        </Heading>
         <Text h="50px" color="gray.250" fontSize={"xl"}></Text>
       </Box>
       <Grid
-        w="100vw"
+        marginX="auto"
+        maxW="1000px"
         display={"flex"}
         flexWrap={"wrap"}
         justifyContent={"center"}
@@ -57,6 +64,7 @@ export const Help = () => {
           Object.keys(state.state).length > 0 ? (
             <Box
               key={index}
+              padding="8px"
               bg="white"
               w="250px"
               h="205px"

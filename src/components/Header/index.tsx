@@ -70,7 +70,7 @@ export const Header = () => {
         ) : null}
         {MediaQuery560 ? (
           <Link href="/#assistencia" _focus={{}}>
-            Assistencias
+            Assistências
           </Link>
         ) : null}
 
