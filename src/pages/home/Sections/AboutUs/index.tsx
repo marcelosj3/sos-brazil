@@ -85,13 +85,11 @@ export const AboutUs = () => {
               },
             }}
           >
-            Sniff other cat's butt and hang jaw half open thereafter thug cat so
-            rub whiskers on bare skin act innocent and i see a bird i stare at
-            it i meow at it i do a wiggle come here birdy but find empty spot in
-            cupboard and sleep all day chew on cable what the heck just
-            happened, something feels fishy. When in doubt, wash purrrrrr stare
-            at imaginary bug yowling nonstop the whole night chase little red
-            dot someday it will be mine!
+            E esse sonho é o de mudar o mundo! A proposta do nosso aplicativo
+            é precisamente a de ajudar isso a acontecer! Centralizando informações
+            importantes, estimulando e viabilizando doações a instituições que se
+            dedicam a mudar vidas, cumpriremos um dia de cada vez o nosso propósito.
+            Junte-se a nós! =)
           </Text>
         </Box>
       </Flex>

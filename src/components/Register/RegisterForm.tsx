@@ -91,10 +91,9 @@ export const RegisterForm = () => {
           color="gray.300.100"
         >
           <Heading size="lg" textAlign="center" fontWeight="normal">
-            Seja bem vindo!
+            Eu sou...
           </Heading>
           <VStack spacing="5" mt="6">
-            <Text>Eu sou...</Text>
             <RadioGroup
               name="value"
               gap="30px"
