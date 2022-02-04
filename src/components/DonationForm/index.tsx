@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useLocation } from "react-router";
 
 import { usePartners } from "../../contexts/PartnersContext";
 
@@ -26,9 +27,10 @@ interface IDonationData {
 const schema = DonationValidation;
 
 export const DonationForm = () => {
-  const [loading, setLoading] = useState(false);
   const [anyValue, setAnyValue] = useState(false);
   const [data, setData] = useState({} as IDonationData);
+
+  const { state } = useLocation();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -51,7 +53,6 @@ export const DonationForm = () => {
     const isEmpty = Object.keys(data).length === 0;
 
     if (!isEmpty) {
-      console.log(data);
       setData(data);
       onOpen();
     }
@@ -153,7 +154,11 @@ export const DonationForm = () => {
                 _focus={{}}
               >
                 {partners.map((partner, index) => (
-                  <option key={index} value={partner.name}>
+                  <option
+                    key={index}
+                    value={partner.name}
+                    selected={state ? state === partner.name : false}
+                  >
                     {partner.name}
                   </option>
                 ))}
@@ -169,7 +174,6 @@ export const DonationForm = () => {
 
         <Button
           disabled={!!errors.value?.message || !!errors.partner?.message}
-          isLoading={loading}
           w={["280px", "350px"]}
           bg="primary.350"
           _hover={{ bg: "primary.300" }}

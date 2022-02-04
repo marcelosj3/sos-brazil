@@ -13,7 +13,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Heading
+  Heading,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
@@ -32,67 +32,72 @@ export const UserInfo = () => {
 
   useEffect(() => {
     userData(userId, accessToken);
-  }, [userId]);
+  }, [userData, userId, accessToken]);
 
   return (
     <Flex
       w="100vw"
-      justifyContent={"center"}
-      alignContent={"center"}
-      flexWrap={"wrap"}
+      justifyContent="center"
+      alignContent="center"
+      flexWrap="wrap"
     >
       <Grid>
         <Box
-          w={["330px", "430px"]}
-          background="white"
-          display={"flex"}
-          justifyContent={"space-evenly"}
-          alignItems={"center"}
-          flexDirection={"column"}
-          boxShadow={"2xl"}
+          w={["300px", "350px", "430px"]}
+          background="gray.100.100"
+          display="flex"
+          justifyContent="space-evenly"
+          alignItems="center"
+          flexDirection="column"
+          boxShadow="2xl"
           h="350px"
           borderRadius="8px"
-          padding="30px"
+          padding={["8px", "30px"]}
         >
-          <Heading  
+          <Heading
             display="flex"
-            textAlign="center" 
+            textAlign="center"
             alignItems="center"
             justifyContent="center"
-        >
-          <Text fontSize='2xl' color="secondary.300"> {userMan.name}</Text>
-        </Heading>
+          >
+            <Text fontSize="2xl" color="secondary.300">
+              {" "}
+              {userMan.name}
+            </Text>
+          </Heading>
           <Text color="gray.250">{userMan.email}</Text>
-          <Text color="gray.250">123.456.789-10{userMan.social_number}</Text>
-        <Button
-          _focus={{}}
-          bg="primary.350"
-          size="lg"
-          leftIcon={<FaRegEdit />}
-          variant={"solid"}
-          onClick={() => onOpen()}
-        >
-          Editar informações
-        </Button>
+          <Text color="gray.250">{userMan.socialNumber}</Text>
+          <Button
+            _focus={{}}
+            bg="primary.350"
+            size="lg"
+            leftIcon={<FaRegEdit />}
+            variant="solid"
+            onClick={() => onOpen()}
+          >
+            Editar informações
+          </Button>
         </Box>
       </Grid>
       <Grid>
-        <Modal onClose={onClose} size={"xl"} isOpen={isOpen}>
+        <Modal onClose={onClose} size="xl" isOpen={isOpen}>
           <ModalOverlay />
           <ModalContent
-            bg="white"
-            w={["350px", "450px"]}
-            maxW={"450px"}
-            minW={"300px"}
+            bg="gray.100.100"
+            w={["300px", "350px", "450px"]}
+            maxW="450px"
+            minW="300px"
             padding="30px"
             marginTop="18vh"
           >
             <ModalHeader
-            display="flex"
-            justifyContent={"center"}
-            padding="20px"
-            color="gray.250"
-            >Editar Informações</ModalHeader>
+              display="flex"
+              justifyContent="center"
+              padding="20px"
+              color="gray.250"
+            >
+              Editar Informações
+            </ModalHeader>
             <ModalCloseButton _focus={{}} />
             <ModalBody>
               <UserModal />

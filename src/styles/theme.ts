@@ -67,7 +67,7 @@ export const theme = extendTheme({
     global: {
       body: {
         bg: "primary.200",
-        color: "gray.300",
+        color: "gray.300.100",
         "::-webkit-scrollbar": {
           height: "5px",
           width: "5px",

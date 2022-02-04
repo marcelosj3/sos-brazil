@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-
-import { Flex, Text, Heading, Button, VStack, HStack } from "@chakra-ui/react";
+import { Flex, Heading, Button, VStack, Grid } from "@chakra-ui/react";
 
 import { usePartners } from "../../contexts/PartnersContext";
 
@@ -26,25 +25,40 @@ export const Partners = () => {
     renderPartners();
   }, []);
 
+  const filterOptions = [
+    "Todos",
+    "Preservação Ambiental",
+    "Moradia",
+    "Saúde",
+    "Seguridade Social",
+    "Assessoria Jurídica",
+  ];
+
   return (
     <Flex flexDirection="column" h="100vh" bgColor="colors.primary.200">
       <Header />
       <VStack spacing="200px">
         <Flex
           w="100%"
-          marginTop="200px"
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
+          pt="120px"
         >
-          <Heading as="h3" size="lg">
-            Escolha, Clique e Doe!
+          <Heading
+            as="h3"
+            fontSize={["3xl", "3xl", "4xl", "4xl"]}
+            fontWeight="medium"
+            color="gray.300.100"
+          >
+            Escolha, clique e doe!
           </Heading>
           <Flex
             w={["320px", "400px", "700px", "930px"]}
             overflowX={["scroll", "scroll"]}
             color="blackAlpha.500"
-            mt="20px"
+            my="16px"
+            pb="8px"
             sx={{
               "::-webkit-scrollbar": {
                 height: "4px",
@@ -64,60 +78,36 @@ export const Partners = () => {
               },
             }}
           >
-            <Button
-              flex="1 0 auto"
-              onClick={renderPartners}
-              _hover={{ color: "secondary.300" }}
-              _focus={{}}
-            >
-              Todos
-            </Button>
-            <Button
-              flex="1 0 auto"
-              onClick={() => partnersFiltered("Preservação Ambiental")}
-              _hover={{ color: "secondary.300" }}
-              _focus={{}}
-            >
-              Preservação Ambiental
-            </Button>
-            <Button
-              flex="1 0 auto"
-              onClick={() => partnersFiltered("Moradia")}
-              _hover={{ color: "secondary.300" }}
-              _focus={{}}
-            >
-              Moradia
-            </Button>
-            <Button
-              flex="1 0 auto"
-              onClick={() => partnersFiltered("Saúde")}
-              _hover={{ color: "secondary.300" }}
-              _focus={{}}
-            >
-              Saúde
-            </Button>
-            <Button
-              flex="1 0 auto"
-              onClick={() => partnersFiltered("Seguridade Social")}
-              _hover={{ color: "secondary.300" }}
-              _focus={{}}
-            >
-              Seguridade Social
-            </Button>
-            <Button
-              flex="1 0 auto"
-              onClick={() => partnersFiltered("Assessoria Jurídica")}
-              _hover={{ color: "secondary.300" }}
-              _focus={{}}
-            >
-              Assessoria Jurídica
-            </Button>
+            {filterOptions.map((value) => (
+              <Button
+                flex="1 0 auto"
+                onClick={
+                  value === "Todos"
+                    ? () => renderPartners()
+                    : () => partnersFiltered(value)
+                }
+                _hover={{ color: "secondary.300" }}
+                _focus={{}}
+                fontWeight="400"
+              >
+                {value}
+              </Button>
+            ))}
           </Flex>
         </Flex>
       </VStack>
-      <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-        {partners.map((partner: IPartnersDataState) => (
-          <PartnerCard {...partner} />
+      <Flex
+        marginX="auto"
+        maxW="1200px"
+        wrap="wrap"
+        alignItems="center"
+        justifyItems="center"
+        gap="16px"
+        justifyContent="center"
+        flexWrap="wrap"
+      >
+        {partners.map((partner: IPartnersDataState, index) => (
+          <PartnerCard key={index} {...partner} />
         ))}
       </Flex>
     </Flex>

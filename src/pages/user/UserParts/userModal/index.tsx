@@ -18,7 +18,7 @@ export const UserModal = () => {
   interface IData {
     name: string;
     email: string;
-    social_number: string;
+    socialNumber: string;
     password: string;
   }
 
@@ -51,20 +51,20 @@ export const UserModal = () => {
       as="form"
       onSubmit={handleSubmit(attDados)}
       w="100%"
-      display={"flex"}
+      display="flex"
       justifyContent="center"
-      flexDirection={"column"}
-      alignContent={"space-between"}
-      alignItems={"center"}
+      flexDirection="column"
+      alignContent="space-between"
+      alignItems="center"
     >
       <VStack spacing={8} w="100%">
         {" "}
         <Flex
           w="100%"
-          flexDirection={"column"}
-          justifyContent={"space-evenly"}
-          alignItems={"flex-start"}
-          flexWrap={"wrap"}
+          flexDirection="column"
+          justifyContent="space-evenly"
+          alignItems="flex-start"
+          flexWrap="wrap"
         >
           <TagLabel flex="1 0 auto" color="secondary.250">
             Nome
@@ -72,17 +72,16 @@ export const UserModal = () => {
           <Input
             type="text"
             {...register("name")}
-            maxW={"350px"}
+            maxW="350px"
             variant="flushed"
           />
         </Flex>
         <Flex
-          w="100%"         
-          flexDirection={"column"}
-          justifyContent={"space-evenly"}
-          alignItems={"flex-start"}
-          flexWrap={"wrap"}
-
+          w="100%"
+          flexDirection="column"
+          justifyContent="space-evenly"
+          alignItems="flex-start"
+          flexWrap="wrap"
         >
           <TagLabel flex="1 0 auto" color="secondary.250">
             Email
@@ -91,15 +90,15 @@ export const UserModal = () => {
             variant="flushed"
             type="text"
             {...register("email")}
-            maxW={"350px"}
+            maxW="350px"
           />
         </Flex>
         <Flex
           w="100%"
-          flexDirection={"column"}
-          justifyContent={"space-evenly"}
-          alignItems={"flex-start"}
-          flexWrap={"wrap"}
+          flexDirection="column"
+          justifyContent="space-evenly"
+          alignItems="flex-start"
+          flexWrap="wrap"
         >
           <TagLabel color="secondary.250" flex="1 0 auto">
             Senha
@@ -108,14 +107,12 @@ export const UserModal = () => {
             variant="flushed"
             type="password"
             {...register("password")}
-            maxW={"350px"}
+            maxW="350px"
           />
         </Flex>
-        <Button 
-        _focus={{}}
-        bg="primary.350"
-        w="100%"
-        type="submit">Enviar</Button>
+        <Button _focus={{}} bg="primary.350" w="100%" type="submit">
+          Enviar
+        </Button>
       </VStack>
     </Box>
   );

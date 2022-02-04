@@ -37,10 +37,12 @@ export const Header = () => {
         {MediaQuery480 ? (
           accessToken ? (
             <Flex w="100px" justifyContent={"space-around"}>
-              <Link as={ReachLink} to={`/user/${user.id}`}>
+              <Link as={ReachLink} to={`/user/${user.id}`} _focus={{}}>
                 User
               </Link>
-              <Link onClick={() => signOut()}>Sair</Link>
+              <Link onClick={() => signOut()} _focus={{}}>
+                Sair
+              </Link>
             </Flex>
           ) : (
             <Button
@@ -52,6 +54,7 @@ export const Header = () => {
                 bg: "gray.100.100",
                 borderColor: "gray.100.100",
               }}
+              _focus={{}}
             >
               Login
             </Button>
@@ -61,20 +64,24 @@ export const Header = () => {
         )}
 
         {MediaQuery480 ? (
-          <Link as={ReachLink} to="/">
+          <Link href="/#" _focus={{}}>
             Home
           </Link>
         ) : null}
-        {MediaQuery560 ? <Link href="/#assistencia">Assistencias</Link> : null}
+        {MediaQuery560 ? (
+          <Link href="/#assistencia" _focus={{}}>
+            Assistencias
+          </Link>
+        ) : null}
 
         <Image src={Logo} alt="logo" w="50px" order={[-1, 0]} />
         {MediaQuery480 ? (
-          <Link as={ReachLink} to="/partners">
+          <Link as={ReachLink} to="/partners" _focus={{}}>
             Colaboradores
           </Link>
         ) : null}
         {MediaQuery560 ? (
-          <Link as={ReachLink} to="#">
+          <Link href="/#sobre-nos" _focus={{}}>
             Sobre nós
           </Link>
         ) : null}
@@ -83,7 +90,7 @@ export const Header = () => {
           order={[-2, 0]}
           variant="solid"
           size="md"
-          color="white"
+          color="gray.100.100"
           bg="feedback.danger.regular"
           _hover={{ bg: "feedback.danger.light" }}
           onClick={() => navigate("/donation")}
