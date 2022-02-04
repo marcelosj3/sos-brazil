@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Flex, Box, Heading, Text, Select, Grid } from "@chakra-ui/react";
+
 import { Header } from "../../components/Header";
+
 import { api } from "../../services/api";
 
 interface IState {
