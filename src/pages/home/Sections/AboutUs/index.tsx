@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 import { DeveloperCard } from "../../../../components/DeveloperCard";
 import { developers } from "./Developers";
 
 export const AboutUs = () => {
-  const [loading, setLoading] = useState(true);
-
   return (
     <Flex
+      id="sobre-nos"
       h="100vh"
       minH={["1100px", "1200px", "1100px", "800px"]}
       pt="85px"
@@ -36,8 +34,9 @@ export const AboutUs = () => {
           alignItems="center"
           justifyContent="center"
         >
-          {developers.map(({ name, image, role, gitHub, linkedin }) => (
+          {developers.map(({ name, image, role, gitHub, linkedin }, index) => (
             <DeveloperCard
+              key={index}
               name={name}
               image={image}
               role={role}
