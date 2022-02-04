@@ -8,6 +8,7 @@ import { Partners } from "../pages/partners";
 import { DonationPage } from "../pages/donation";
 import { Donachos } from "../pages/donachos";
 import { PrivateRoute } from "./PrivateRoute";
+import { Help } from "../pages/help";
 
 export const Routes = () => (
   <RoutesSwitch>
@@ -25,5 +26,6 @@ export const Routes = () => (
     <Route path="/partners" element={<Partners />} />
     <Route path="/donation" element={<DonationPage />} />
     <Route path="/donachos" element={<Donachos />} />
+    <Route path="/help" element={<Help />} />
   </RoutesSwitch>
 );
