@@ -16,7 +16,7 @@ export const Login = () => {
     >
       <Header />
       <Flex
-        w={["100%"]}
+        w="100%"
         justifyContent="center"
         flexDirection={["column", "column", "row", "row"]}
         alignItems="center"

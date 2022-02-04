@@ -16,7 +16,6 @@ export const RadioCard = ({ children, ...rest }: IRadioCardProps) => {
       <input {...input} />
       <Box
         {...checkbox}
-        onClick={() => console.log("oi")}
         cursor="pointer"
         borderWidth="1px"
         borderRadius="md"

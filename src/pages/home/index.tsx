@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { Header } from "../../components/Header";
+import { AboutUs } from "./Sections/AboutUs";
 
 import { GeneralInfo } from "./Sections/GeneralInfo";
 import { NewsContainer } from "./Sections/NewsContainer";
@@ -14,6 +15,7 @@ export const Home = () => {
       <OfferedAssistance />
       <NewsContainer />
       <OurPartnersContainer />
+      <AboutUs />
     </Box>
   );
 };

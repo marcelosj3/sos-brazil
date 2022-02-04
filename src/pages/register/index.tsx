@@ -11,11 +11,13 @@ export const Register = () => {
       alignItems="center"
       justifyContent="center"
       color="gray.100.100"
-      pt="120px"
+      h="100vh"
+      minH={["850px", "750px"]}
+      pt="85px"
     >
       <Header />
       <Flex
-        w={["100%"]}
+        w="100%"
         justifyContent="center"
         flexDirection={["column", "column", "row", "row"]}
         alignItems="center"
@@ -26,7 +28,7 @@ export const Register = () => {
           alt="mundo na mão"
           w={["0px", "0px", "200px", "400px"]}
           display={["none", "none", "none", "block"]}
-          mr={["0px", "0px", "20px", "100px"]}
+          ml={["0px", "0px", "20px", "100px"]}
         />
       </Flex>
     </Flex>

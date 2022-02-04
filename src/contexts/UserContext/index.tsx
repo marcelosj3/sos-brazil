@@ -16,7 +16,7 @@ interface IUserProviderProps {
 interface IData {
   name: string;
   email: string;
-  social_number: string;
+  socialNumber: string;
   password: string;
 }
 
@@ -24,7 +24,7 @@ interface IUser {
   email: string;
   password: string;
   name: string;
-  social_number: string;
+  socialNumber: string;
   id: number;
 }
 
@@ -57,7 +57,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
           headers: { Authorization: `Bearer ${acessToken}` },
         })
         .then((response) => {
-          console.log(response);
           toast({
             title: "Alteração de Alterados.",
             description: "Dados atualizados com sucesso.",
